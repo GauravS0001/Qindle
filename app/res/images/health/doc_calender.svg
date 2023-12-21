@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12.673" height="14.081" viewBox="0 0 12.673 14.081">
+  <g id="doc_calender" transform="translate(-3 -2)">
+    <rect id="Rectangle_3266" data-name="Rectangle 3266" width="2" height="3" transform="translate(5 2)" fill="#07868f"/>
+    <rect id="Rectangle_3267" data-name="Rectangle 3267" width="2" height="3" transform="translate(12 2)" fill="#07868f"/>
+    <path id="Path_1597" data-name="Path 1597" d="M14.265,4H4.408A1.412,1.412,0,0,0,3,5.408v9.857a1.412,1.412,0,0,0,1.408,1.408h9.857a1.412,1.412,0,0,0,1.408-1.408V5.408A1.412,1.412,0,0,0,14.265,4Zm0,11.265H4.408V7.52h9.857Z" transform="translate(0 -0.592)" fill="#07868f"/>
+    <rect id="Rectangle_3268" data-name="Rectangle 3268" width="3" height="3" transform="translate(10 10)" fill="#07868f"/>
+  </g>
+</svg>

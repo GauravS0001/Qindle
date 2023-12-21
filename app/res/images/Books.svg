@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="13.54" height="20.31" viewBox="0 0 13.54 20.31">
+  <g id="Books" transform="translate(-154.483)">
+    <path id="Path_1607" data-name="Path 1607" d="M154.483,15.8V1.881A1.881,1.881,0,0,1,156.364,0h11.659V14.292h0" fill="#ea9d2d"/>
+    <g id="Group_16836" data-name="Group 16836" transform="translate(158.62 1.504)">
+      <rect id="Rectangle_3194" data-name="Rectangle 3194" width="7.898" height="4.513" rx="1" transform="translate(0)" fill="#b47923"/>
+    </g>
+    <path id="Path_1608" data-name="Path 1608" d="M157.116,0V15.8h-2.633V1.881A1.881,1.881,0,0,1,156.364,0Z" fill="#d68f29"/>
+    <path id="Path_1609" data-name="Path 1609" d="M163.51,338.458h-7.522a1.5,1.5,0,0,1-1.5-1.5h0a1.5,1.5,0,0,1,1.5-1.5h12.036v3.009h-1.5" transform="translate(0 -321.157)" fill="#dbdbdb"/>
+    <path id="Path_1610" data-name="Path 1610" d="M155.987,372.263h12.036v-1.5h-13.54A1.5,1.5,0,0,0,155.987,372.263Z" transform="translate(0 -354.962)" fill="#b9b9b9"/>
+    <path id="Path_1611" data-name="Path 1611" d="M366.345,370.759h3.009v4.513l-1.5-1.5-1.5,1.5Z" transform="translate(-202.835 -354.962)" fill="#dc4d41"/>
+    <rect id="Rectangle_3198" data-name="Rectangle 3198" width="3.009" height="1.128" transform="translate(163.51 15.797)" fill="#c7463b"/>
+  </g>
+</svg>

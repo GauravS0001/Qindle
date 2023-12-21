@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="340" height="420" viewBox="0 0 340 420">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_3209" data-name="Rectangle 3209" width="330" height="410" rx="7" fill="#fff6cb"/>
+    </clipPath>
+  </defs>
+  <g id="Orange_Post_Card" transform="translate(-10 -70)">
+    <rect id="Rectangle_3220" data-name="Rectangle 3220" width="330" height="410" transform="translate(15 75)" fill="#f3801c"/>
+    <g id="Rectangle_3210" data-name="Rectangle 3210" transform="translate(15 75)" fill="none" stroke="#ffb778" stroke-width="3">
+      <rect width="330" height="410" stroke="none"/>
+      <rect x="-1.5" y="-1.5" width="333" height="413" fill="none"/>
+    </g>
+    <g id="Rectangle_3211" data-name="Rectangle 3211" transform="translate(15 75)" fill="none" stroke="#fff" stroke-width="5" stroke-dasharray="20 12">
+      <rect width="330" height="410" stroke="none"/>
+      <rect x="-2.5" y="-2.5" width="335" height="415" fill="none"/>
+    </g>
+    <g id="Rectangle_3221" data-name="Rectangle 3221" transform="translate(15 75)" fill="none" stroke="#ce6000" stroke-width="3" stroke-dasharray="12 20">
+      <rect width="330" height="410" stroke="none"/>
+      <rect x="-1.5" y="-1.5" width="333" height="413" fill="none"/>
+    </g>
+  </g>
+</svg>

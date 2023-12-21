@@ -1,0 +1,102 @@
+[
+  {
+    "parentId": null,
+    "commentId": 1,
+    "name": "Comment 1",
+    "liked": true,
+    "reported": false,
+    "likes": [
+
+    ],
+    "email": "Roshan C",
+    "created_at": "2017-12-23 14:45:06",
+    "body": "Test Comment \n sample",
+    "children": [
+      {
+        "parentId": 1,
+        "commentId": 2,
+        "name": "Roshan",
+        "created_at": "2017-12-23 14:45:06",
+        "liked": true,
+        "reported": false,
+        "likes": [
+
+        ],
+        "email": "ijuf3rd@gmail.com",
+        "body": "test reply"
+      },
+      {
+        "parentId": 1,
+        "commentId": 3,
+        "name": "Roshan",
+        "created_at": "2017-12-23 14:45:06",
+        "liked": false,
+        "reported": true,
+        "likes": [
+          {
+            "username": "someUser",
+            "user_id": 345,
+            "image": "https://ireview.live/img/no-user.png"
+          }
+        ],
+        "email": "deepak@gmail.com",
+        "body": "deepak comment"
+      }
+    ]
+  },
+  {
+    "parentId": null,
+    "commentId": 25,
+    "name": "Sushant",
+    "created_at": "2017-12-23 14:45:06",
+    "liked": false,
+    "reported": true,
+    "likes": [
+      {
+        "username": "someUser",
+        "user_id": 345,
+        "image": "https://ireview.live/img/no-user.png"
+      }
+    ],
+    "email": "Sushant A",
+    "body": "Comment 2 ",
+    "children": [
+      {
+        "parentId": 25,
+        "commentId": 26,
+        "name": "in deleniti sunt provident soluta ratione veniam quam praesentium",
+        "created_at": "2017-12-23 14:45:06",
+        "liked": false,
+        "reported": false,
+        "likes": [
+          {
+            "username": "someUser",
+            "user_id": 345,
+            "image": "https://ireview.live/img/no-user.png"
+          }
+        ],
+        "email": "ijuf3rd@gmail.com",
+        "body": "roshan comment"
+      },
+      {
+        "parentId": 25,
+        "commentId": 27,
+        "name": "Deepak",
+        "created_at": "2017-12-23 14:45:06",
+        "liked": false,
+        "reported": false,
+        "likes": [
+          {
+            "username": "someUser",
+            "user_id": 345,
+            "image": "https://ireview.live/img/no-user.png"
+          }
+        ],
+        "email": "deepak@gmail.com",
+        "body": "comment 2"
+      }
+      
+    ]
+  }
+  
+]

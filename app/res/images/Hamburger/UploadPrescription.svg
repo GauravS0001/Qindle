@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20.091" height="17.012" viewBox="0 0 20.091 17.012">
+  <g id="Upload_Prescription" data-name="Upload Prescription" transform="translate(0 -19.279)">
+    <path id="Path_1836" data-name="Path 1836" d="M16.354,23.1l-1.822-3.816H2a2,2,0,0,0-2,2v13a2,2,0,0,0,2,2H18.088a2,2,0,0,0,2-2V24.844Z" transform="translate(0 -0.005)" fill="#9ad3ff"/>
+    <path id="Path_1837" data-name="Path 1837" d="M310.279,19.279v3.688a1.872,1.872,0,0,0,1.872,1.872h3.688Z" transform="translate(-295.748)" fill="#74c3ff"/>
+    <path id="Path_1838" data-name="Path 1838" d="M9.81,19.285H2a2,2,0,0,0-2,2v13a2,2,0,0,0,2,2H9.835S9.81,28.21,9.81,19.285Z" transform="translate(0 -0.006)" fill="#74c3ff"/>
+    <g id="Group_17020" data-name="Group 17020" transform="translate(2.41 20.918)">
+      <path id="Path_1839" data-name="Path 1839" d="M51.8,58.859a.351.351,0,0,0,.351-.351V57.055l1.958,2.225-1.093.962a.351.351,0,0,0,.464.527l1.093-.962.962,1.093a.351.351,0,1,0,.527-.464L55.1,59.343l1.093-.962a.351.351,0,1,0-.464-.527l-1.093.962-1.613-1.833a1.357,1.357,0,0,0-.191-2.707H51.8a.351.351,0,0,0-.351.351v3.88A.351.351,0,0,0,51.8,58.859Zm1.032-3.88a.659.659,0,1,1,0,1.314l-.675,0c0-.666,0-.486,0-1.317Z" transform="translate(-51.452 -54.276)" fill="#423e4f"/>
+      <path id="Path_1840" data-name="Path 1840" d="M51.8,226.717H64.4a.351.351,0,0,0,0-.7H51.8a.351.351,0,0,0,0,.7Z" transform="translate(-51.452 -217.971)" fill="#423e4f"/>
+      <path id="Path_1841" data-name="Path 1841" d="M64.4,272.015H51.8a.351.351,0,0,0,0,.7H64.4a.351.351,0,0,0,0-.7Z" transform="translate(-51.452 -261.818)" fill="#423e4f"/>
+      <path id="Path_1842" data-name="Path 1842" d="M55.955,318.017H51.8a.351.351,0,1,0,0,.7h4.152a.351.351,0,0,0,0-.7Z" transform="translate(-51.452 -305.665)" fill="#423e4f"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "982404152896",
+    "project_id": "asara-e98cd",
+    "storage_bucket": "asara-e98cd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:982404152896:android:4c8de3a3c53bb0bf3629a5",
+        "android_client_info": {
+          "package_name": "com.asara"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "982404152896-qe3d87b1lg35jri8jt4c7kua1fj121g4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGQ4BCIYOSaSUJ5cGEyNL9xG7VQVDjWoU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "982404152896-qe3d87b1lg35jri8jt4c7kua1fj121g4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

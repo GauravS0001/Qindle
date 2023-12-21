@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="22.03" viewBox="0 0 20 22.03">
+  <g id="Order_Medicines" data-name="Order Medicines" transform="translate(-6)">
+    <path id="Path_1843" data-name="Path 1843" d="M66,90h7.745v3.872H66Z" transform="translate(-57.418 -86.128)" fill="#c3dafd"/>
+    <path id="Path_1844" data-name="Path 1844" d="M156,90h3.872v3.872H156Z" transform="translate(-143.546 -86.128)" fill="#a1b8d8"/>
+    <path id="Path_1845" data-name="Path 1845" d="M6,150H18.908v15.576H6Z" transform="translate(0 -143.546)" fill="#e4f3ff"/>
+    <path id="Path_1846" data-name="Path 1846" d="M156,150h6.454v15.576H156Z" transform="translate(-143.546 -143.546)" fill="#e4f3ff"/>
+    <path id="Path_1847" data-name="Path 1847" d="M36,0H46.326V5.163H36Z" transform="translate(-28.709)" fill="#457899"/>
+    <path id="Path_1848" data-name="Path 1848" d="M156,0h5.163V5.163H156Z" transform="translate(-143.546)" fill="#365c75"/>
+    <path id="Path_1849" data-name="Path 1849" d="M6,216H18.908v9.9H6Z" transform="translate(0 -206.706)" fill="#ff5c5c"/>
+    <path id="Path_1850" data-name="Path 1850" d="M156,216h6.454v9.9H156Z" transform="translate(-143.546 -206.706)" fill="#ff3838"/>
+    <path id="Path_1851" data-name="Path 1851" d="M186,0h1.291V2.564H186Z" transform="translate(-172.255)" fill="#274254"/>
+    <path id="Path_1852" data-name="Path 1852" d="M96,0h1.291V2.564H96Z" transform="translate(-86.128)" fill="#365c75"/>
+    <path id="Path_1853" data-name="Path 1853" d="M105.733,277.721h-1.721V276h-1.291v1.721H101v1.291h1.721v1.721h1.291v-1.721h1.721Z" transform="translate(-90.912 -264.125)" fill="#e4f3ff"/>
+    <path id="Path_1854" data-name="Path 1854" d="M156.645,277.721V276H156v4.733h.645v-1.721h1.721v-1.291Z" transform="translate(-143.546 -264.125)" fill="#c3dafd"/>
+    <path id="Path_1859" data-name="Path 1859" d="M283.717,167.067l-3.651,3.651a2.366,2.366,0,1,1-3.347-3.347l3.651-3.651a2.366,2.366,0,1,1,3.347,3.347Z" transform="translate(-258.409 -156.013)" fill="#e4f3ff"/>
+    <path id="Path_1860" data-name="Path 1860" d="M295.456,186.107l3.651-3.651a2.369,2.369,0,0,0,0-3.347l-7,7A2.369,2.369,0,0,0,295.456,186.107Z" transform="translate(-273.799 -171.403)" fill="#c3dafd"/>
+    <path id="Path_1861" data-name="Path 1861" d="M336.361,163.718l-1.825,1.826,3.347,3.347,1.826-1.826a2.366,2.366,0,0,0-3.347-3.347Z" transform="translate(-314.4 -156.012)" fill="#5ca2fa"/>
+    <path id="Path_1862" data-name="Path 1862" d="M375.1,184.281l1.826-1.825a2.369,2.369,0,0,0,0-3.347l-3.5,3.5Z" transform="translate(-351.618 -171.403)" fill="#3d6def"/>
+  </g>
+</svg>

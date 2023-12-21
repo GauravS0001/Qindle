@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="Fun_Comedy" data-name="Fun/ Comedy" transform="translate(-0.235 -0.235)">
+    <circle id="Ellipse_137" data-name="Ellipse 137" cx="15" cy="15" r="15" transform="translate(0.235 0.235)" fill="#ffca28"/>
+    <g id="Group_16834" data-name="Group 16834" transform="translate(5.672 7.619)">
+      <path id="Path_1600" data-name="Path 1600" d="M294.361,133.092a.955.955,0,0,1-.954-.954,1.909,1.909,0,1,0-3.818,0,.954.954,0,0,1-1.909,0,3.818,3.818,0,1,1,7.636,0A.954.954,0,0,1,294.361,133.092Z" transform="translate(-276.227 -128.32)" fill="#6d4c41"/>
+      <path id="Path_1601" data-name="Path 1601" d="M102.361,133.092a.955.955,0,0,1-.954-.954,1.909,1.909,0,1,0-3.818,0,.954.954,0,0,1-1.909,0,3.818,3.818,0,1,1,7.636,0A.954.954,0,0,1,102.361,133.092Z" transform="translate(-95.68 -128.32)" fill="#6d4c41"/>
+    </g>
+    <path id="Path_1602" data-name="Path 1602" d="M92.294,288.7a.956.956,0,0,0-.76-.38h-20.2a.958.958,0,0,0-.92,1.214,11.449,11.449,0,0,0,22.032,0,.946.946,0,0,0-.152-.834Z" transform="translate(-66.22 -271.157)" fill="#fafafa"/>
+  </g>
+</svg>
