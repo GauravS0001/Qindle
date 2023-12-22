@@ -39,10 +39,6 @@ const MedicineReminder_1 = props => {
 
   const [selectedFreinds, setSelectedFreinds] = useState('');
 
-  const onSelectBg = (friend) => {
-    setSelectedFreinds(friend);
-  };
-
   const onSubmit = () => {
     props.navigation.navigate('MedicineReminder_2', {
       screen: 'MedicineReminder_2',
@@ -233,7 +229,12 @@ const MedicineReminder_1 = props => {
         style={{borderColor: "black", borderWidth: 1, top: -40, width: "80%", borderRadius: 10, paddingLeft: 10, fontWeight: 'bold', fontSize: 16}}
         />
 
-        
+        <TouchableOpacity style={{height: 40, width: 100, backgroundColor: "#055F9B", position: 'absolute', top: 30, justifyContent: 'center', alignItems: 'center', borderRadius: 10}}
+        onPress={()=>onSubmit()}
+        >
+
+          <Text style={{color: "white", fontWeight: 'bold'}}>Next ></Text>
+        </TouchableOpacity>
           </View>
 
           

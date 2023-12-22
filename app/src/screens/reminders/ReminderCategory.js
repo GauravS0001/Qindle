@@ -88,6 +88,15 @@ const ReminderCategory = props => {
       });
     }
 
+    if (item.name == 'Bill payment') {
+      props.navigation.navigate('BillPayment', {
+        screen: 'BillPayment',
+        params: {
+          category: item
+        }
+      });
+    }
+
 
 
   };

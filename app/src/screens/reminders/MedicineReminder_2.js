@@ -56,7 +56,7 @@ const MedicineReminder_2 = props => {
     props.navigation.navigate('MedicineReminder_3', {
       screen: 'MedicineReminder_3',
       params: {
-        medicineCategory: props.route.params.friends._id,
+        medicineCategory: props.route.params.friend,
         friends: _data
       }
     });
@@ -73,15 +73,6 @@ const MedicineReminder_2 = props => {
       text: input
     })
 
-    /*
-    //let text = input.toLowerCase()
-    let filteredName = friendsList.filter((item) => {
-      return item.name.toLowerCase().match(input)
-    })
-    setSelectedList(filteredName)
-    //setFriends(friends_array.slice());
-    //setQuery(input);
-    */
   };
 
 
@@ -215,19 +206,7 @@ const MedicineReminder_2 = props => {
             >
             </Text>
 
-            {/**
-            <Text
-              style={{
-                flex: 1,
-                backgroundColor: '#f2f2f2',
-                flexDirection: 'column',
-                marginRight: 5,
-                borderRadius: 20,
-                height: 10
-              }}
-            >
-            </Text>
-             */}
+            
 
 
           </View >

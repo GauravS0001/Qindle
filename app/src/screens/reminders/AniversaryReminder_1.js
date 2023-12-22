@@ -269,7 +269,7 @@ const Aniversary = props =>{
               <Text style={{
                 color: "white", 
                 fontWeight: 'bold', 
-                fontSize: 17}}>SET REMINDER{postText}</Text>
+                fontSize: 17}}>SET REMINDER</Text>
 
              </TouchableOpacity>
             </View>

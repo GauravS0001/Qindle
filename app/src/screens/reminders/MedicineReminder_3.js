@@ -26,8 +26,6 @@ const MedicineReminder_3 = props => {
 
   const _user = useSelector(state => state.user); //!!state.auth.token
 
-  //props.route.params.friends[0]._id
-
   useEffect(() => {
     dispatch({
       type: types.GET_USER_FRIENDS,
@@ -42,12 +40,6 @@ const MedicineReminder_3 = props => {
 
 
   }, [props.route.params.friends._id]);
-
-  /*
-  const friendsList = useSelector(
-    state => state.userPost.userFriends,
-  );
- */
 
   const friendsList = useSelector(
     state => state.reminder.medicineFor,
@@ -67,10 +59,6 @@ const MedicineReminder_3 = props => {
     props.navigation.navigate('MedicineReminder_4', {
       screen: 'MedicineReminder_4',
       params: {
-        //name: props.route.params.params.name,
-        //privacy: props.route.params.params.privacy,
-        //description: props.route.params.params.description,
-        //category: props.route.params.params.category,
         medicineName: props.route.params.friends._id,
         medicineCategory: props.route.params.medicineCategory,
         friends: _data
@@ -88,68 +76,44 @@ const MedicineReminder_3 = props => {
       text: input
     })
 
-
   };
 
+  const options = [{_id: "38yd9", name: "BP"}, {_id: "d3kjg", name: "Sugar"}, {_id: "s3ljh", name: "Pain"}, 
+                   {_id: "jkg45", name: "Health Supplement"}, {_id: "kh32g", name: "Asthma"}, {_id: "jwh2e", name: "Acidity"},
+                   {_id: "a8dfg", name: "Constipation"}, {_id: "hkg43", name: "Others"}];
+
   return (
-    <>
-      <BaseSafeAreaView style={{ backgroundColor: colors.white }}>
-        <View style={{ flex: 1, margin: 15, }}>
+    <View style={{height: "100%", width: "100%", backgroundColor: "white"}}>
+      <View style={{height: 56, width: "100%", backgroundColor: "white", elevation: 10}}>
+      <Text style={{
+      fontWeight: 'bold', 
+      fontSize: 18.7, 
+      top: 18, 
+      left: 45}}>Select Reason</Text>
 
-          <View style={{
-            flex: .1,
-            marginTop: 5,
-            flexDirection: 'row',
-          }}>
-            <Text
-              style={{
-                flex: 1,
-                flexDirection: 'row',
-                paddingLeft: 10,
-                paddingTop: 10,
-                fontSize: 18,
-                fontWeight: 'bold'
-
-              }}
-            >
-              Select Reason
-            </Text>
-            <View
-              style={{
-                flex: .1,
-                flexDirection: 'row',
-                paddingLeft: 10,
-                paddingTop: 16,
-              }}
-            >
-              <TouchableOpacity
-                onPress={() => {
-                  props.navigation.goBack();
-                }
-                }
-              >
-                <Close />
-              </TouchableOpacity>
-
-            </View>
-
-          </View>
-
-          <View
-            style={{
-              //backgroundColor: 'blue',
-              borderTopColor: 'white',
-              borderBottomColor: '#f2f2f2',
-              borderWidth: 5,
-              borderLeftColor: 'white',
-              borderRightColor: 'white',
-            }}>
-          </View>
+      <TouchableOpacity style={{
+      height: 30, 
+      width: 30, 
+      backgroundColor: "white", 
+      left: "89%", 
+      top: 17, 
+      justifyContent: 'center', 
+      alignItems: 'center',
+      position: 'absolute'
+    }}
+      onPress={()=>{props.navigation.goBack()}}>
+      <Close />
+     </TouchableOpacity>
+      </View>
 
 
+      <View style={{
+      height: 62, 
+      width: "93%", 
+      left: 15, 
+      top: 0}}>
 
-
-          <View style={{
+     <View style={{
             ...styles.textareaWithBackground, marginTop: 20, flex: .05,
             //backgroundColor:'pink'
           }}>
@@ -161,7 +125,7 @@ const MedicineReminder_3 = props => {
                 flexDirection: 'column',
                 marginRight: 5,
                 borderRadius: 20,
-                height: 10
+                height: 5
               }}
             >
             </Text>
@@ -172,7 +136,7 @@ const MedicineReminder_3 = props => {
                 flexDirection: 'column',
                 marginRight: 5,
                 borderRadius: 20,
-                height: 10
+                height: 5
               }}
             >
             </Text>
@@ -183,7 +147,7 @@ const MedicineReminder_3 = props => {
                 flexDirection: 'column',
                 marginRight: 5,
                 borderRadius: 20,
-                height: 10
+                height: 5
               }}
             >
             </Text>
@@ -194,19 +158,7 @@ const MedicineReminder_3 = props => {
                 flexDirection: 'column',
                 marginRight: 5,
                 borderRadius: 20,
-                height: 10
-              }}
-            >
-            </Text>
-
-            <Text
-              style={{
-                flex: 1,
-                backgroundColor: '#CCC',
-                flexDirection: 'column',
-                marginRight: 5,
-                borderRadius: 20,
-                height: 10
+                height: 5
               }}
             >
             </Text>
@@ -218,130 +170,28 @@ const MedicineReminder_3 = props => {
                 flexDirection: 'column',
                 marginRight: 5,
                 borderRadius: 20,
-                height: 10
+                height: 5
               }}
             >
             </Text>
 
-
-            {/**
             <Text
               style={{
                 flex: 1,
-                backgroundColor: '#f2f2f2',
+                backgroundColor: '#CCC',
                 flexDirection: 'column',
                 marginRight: 5,
                 borderRadius: 20,
-                height: 10
+                height: 5
               }}
             >
-            </Text>
-             */}
+            </Text>       
+          </View>     
+     </View>      
 
+      <View style={{height: 100, width: "100%", backgroundColor}}></View>
 
-          </View>
-
-          <View style={{
-            ...styles.textareaWithBackground, marginTop: 10, flex: .05,
-            //backgroundColor: 'orange'
-          }}>
-
-            <View
-              style={{
-                //backgroundColor: 'blue',
-                borderTopColor: '#f2f2f2',
-                borderBottomColor: 'white',
-                borderWidth: 2,
-                borderLeftColor: 'white',
-                borderRightColor: 'white',
-                width: '100%'
-              }}>
-              <Text></Text>
-            </View>
-
-
-          </View>
-
-          <View style={{
-            ...styles.textareaWithBackground, marginTop: 10, flex: .1,
-            // backgroundColor: 'pink'
-          }}>
-
-            <Text>What are you taking it for?</Text>
-
-
-          </View>
-
-
-          <View style={{
-            ...styles.bg_color_dots, flex: .1,
-            borderRadius: 10,
-            borderWidth: 1,
-            borderColor: '#000'
-          }}>
-
-            <TextInput
-              style={{
-                //marginHorizontal: 10, 
-              }}
-              placeholder="Search Taking for"
-              onChangeText={updateQuery}
-            />
-          </View>
-          <View style={{
-            ...styles.bg_color_dots, flex: 1,
-            //backgroundColor: 'blue'
-          }}>
-
-
-            <FlatList
-              data={friendsList}
-              horizontal={false}
-              keyExtractor={item => item._id}
-              numColumns={1}
-              renderItem={itemData => (
-                <>
-
-                  <MedicineForm
-                    item={itemData.item}
-                    onBgSelect={onSelectBg}
-                  />
-
-                </>
-              )}
-            />
-          </View>
-
-          {/*
-          <View style={{
-            ...styles.button_container,
-            //backgroundColor: 'pink', 
-            flex: .1
-          }}>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => {
-
-                props.navigation.navigate('CreateCommunityHash', {
-                  screen: 'CreateCommunityHash',
-                  params: {
-                    //name: props.route.params.params.name,
-                    //privacy: props.route.params.params.privacy,
-                    //description: props.route.params.params.description,
-                    //category: props.route.params.params.category,
-                    friends: selectedFreinds
-                  }
-                });
-              }}>
-
-              <Text style={styles.continue_text}>INVITE FRIENDS</Text>
-            </TouchableOpacity>
-          </View>
-
-          */}
-        </View>
-      </BaseSafeAreaView>
-    </>
+    </View>
   );
 };
 
