@@ -88,7 +88,7 @@ import CreateCommunityCategory from '../community/CreateCommunityCategory';
 import CreateCommunityFriends from '../community/CreateCommunityFriends';
 import CreateCommunityHash from '../community/CreateCommunityHash';
 import CreateCommunityDone from '../community/CreateCommunityDone';
-import Aniversary from '../reminders/Aniversary'
+import Aniversary from '../reminders/AniversaryReminder_1'
 
 //@todo check stacking of community , reminder tbd 
 const OTPStackNavigator = createStackNavigator();

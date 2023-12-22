@@ -112,13 +112,6 @@ const ReminderCategory = props => {
   );
   useEffect(() => {
     if (_reinderNotificationSet == true) {
-      /* props.navigation.navigate('ReminderNotification', {
-         screen: 'ReminderNotification',
-         params: {
- 
-         }
-       })
-       */
     }
   }, [_reinderNotificationSet]);
 
@@ -126,25 +119,47 @@ const ReminderCategory = props => {
     
       <View style={{ backgroundColor: colors.white, height: "100%"}}>
         
-        <View style={{height: 55, width: "100%", elevation: 10, backgroundColor: "white"}}>
-        <Text style={{fontWeight: "bold", fontSize: 19, top: 15, left: 20}}>Select Category</Text>
+        <View style={{
+          height: 55, 
+          width: "100%", 
+          elevation: 10, 
+          backgroundColor: "white"}}>
+
+        <Text style={{
+          fontWeight: "bold", 
+          fontSize: 19, 
+          top: 15, 
+          left: 20}}>Select Category</Text>
+
+         {/*Go Back Button X*/}
         <TouchableOpacity style={{
-          height: 30, width: 30, backgroundColor: "white", position: 'absolute', justifyContent: 'center', alignItems: 'center',
-          top: 8, left: "90%"
+          height: 30, 
+          width: 30, 
+          backgroundColor: "white", 
+          position: 'absolute', 
+          justifyContent: 'center', 
+          alignItems: 'center',
+          top: 8, 
+          left: "90%"
         }}
         onPress={()=>{
           props.navigation.goBack();
         }}
         >
-          <Text style={{fontWeight: 'bold', fontSize: 25}}>x</Text>
+        <Text style={{fontWeight: 'bold', fontSize: 25}}>x</Text>
         </TouchableOpacity>
         </View>
           
-          <Text style={{top: 18, left: 20, fontSize: 16,  color: "gray"}}>Select only ONE category to set reminder for</Text>
+          <Text style={{
+            top: 18, 
+            left: 20, 
+            fontSize: 16,  
+            color: "gray"}}>Select only ONE category to set reminder for</Text>
       
+        
+        {/*Display reminder category blocks*/}
         <View style={{marginTop: 30}}>  
         {reminderCategory.map((item) => (
-        
         <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
         <ReminderCategoryCard
           key={item._id}

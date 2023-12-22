@@ -27,27 +27,17 @@ const MedicineReminder_2 = props => {
   const _user = useSelector(state => state.user); //!!state.auth.token
 
   useEffect(() => {
-    /*
-    dispatch({
-      type: types.GET_USER_FRIENDS,
-      userId: _user.userDetails._id
-    })
-*/
+   
     dispatch({
       type: types.GET_MEDICINE_NAME,
       userId: _user.userDetails._id,
-      medicineCategory: props.route.params.friends._id
+      medicineCategory: props.route.params.friend
     })
 
 
-  }, [props.route.params.friends._id]);
+  }, [props.route.params.friend]);
 
-
-  /*
-    const friendsList = useSelector(
-    state => state.userPost.userFriends,
-  );
-  */
+  
   const friendsList = useSelector(
     state => state.reminder.medicineName,
   );
@@ -66,10 +56,6 @@ const MedicineReminder_2 = props => {
     props.navigation.navigate('MedicineReminder_3', {
       screen: 'MedicineReminder_3',
       params: {
-        //name: props.route.params.params.name,
-        //privacy: props.route.params.params.privacy,
-        //description: props.route.params.params.description,
-        //category: props.route.params.params.category,
         medicineCategory: props.route.params.friends._id,
         friends: _data
       }

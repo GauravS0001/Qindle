@@ -229,7 +229,7 @@ const BirthdayReminder_1 = props => {
           </View>
 
 
-         
+        
 
           <View style={styles.bg_color_dots}>
 

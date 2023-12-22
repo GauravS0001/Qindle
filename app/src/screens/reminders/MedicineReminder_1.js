@@ -37,20 +37,19 @@ const MedicineReminder_1 = props => {
     state => state.reminder.medicineForm,
   );
 
-  const [selectedFreinds, setSelectedFreinds] = useState([]);
+  const [selectedFreinds, setSelectedFreinds] = useState('');
 
-  const onSelectBg = item => {
-    let data = selectedFreinds;
-    data.push(item)
-    setSelectedFreinds(data)
-    let _data = selectedFreinds[selectedFreinds.length - 1];
+  const onSelectBg = (friend) => {
+    setSelectedFreinds(friend);
+  };
+
+  const onSubmit = () => {
     props.navigation.navigate('MedicineReminder_2', {
-      screen: 'MedicineReminder_2', //2
+      screen: 'MedicineReminder_2',
       params: {
-        friends: _data
-      }
+        friend: selectedFreinds,
+      },
     });
-
   };
 
 
@@ -227,22 +226,14 @@ const MedicineReminder_1 = props => {
           }}>
 
 
-            <FlatList
-              data={friendsList}
-              horizontal={false}
-              keyExtractor={item => item._id}
-              numColumns={1}
-              renderItem={itemData => (
-                <>
+        <TextInput
+        placeholder="Enter medicine form"
+        value={selectedFreinds}
+        onChangeText={(text) => setSelectedFreinds(text)}
+        style={{borderColor: "black", borderWidth: 1, top: -40, width: "80%", borderRadius: 10, paddingLeft: 10, fontWeight: 'bold', fontSize: 16}}
+        />
 
-                  <MedicineForm
-                    item={itemData.item}
-                    onBgSelect={onSelectBg}
-                  />
-
-                </>
-              )}
-            />
+        
           </View>
 
           
