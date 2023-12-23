@@ -8,6 +8,7 @@ import {
   Keyboard,
   ImageBackground,
   FlatList,
+  Image
 } from 'react-native';
 import colors from '../../../res/colors';
 import images from '../../../res/images_url';
@@ -20,6 +21,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as types from '../startup/types';
 
 import Close from '../../../res/images/Close.svg';
+import { ScrollView } from 'react-native-gesture-handler';
 const MedicineReminder_3 = props => {
 
   const dispatch = useDispatch();
@@ -35,11 +37,11 @@ const MedicineReminder_3 = props => {
     dispatch({
       type: types.GET_MEDICINE_FOR,
       userId: _user.userDetails._id,
-      medicineFor: props.route.params.friends._id
+      medicineFor: props.route.params.friends
     })
 
 
-  }, [props.route.params.friends._id]);
+  }, [props.route.params.friends]);
 
   const friendsList = useSelector(
     state => state.reminder.medicineFor,
@@ -51,7 +53,7 @@ const MedicineReminder_3 = props => {
 
   const [selectedFreinds, setSelectedFreinds] = useState([]);
 
-  const onSelectBg = item => {
+  /*const onSelectBg = item => {
     let data = selectedFreinds;
     data.push(item)
     setSelectedFreinds(data)
@@ -65,16 +67,29 @@ const MedicineReminder_3 = props => {
       }
     });
 
-  };
+  };*/
 
-  const updateQuery = input => {
+  function updateQuery(input){
 
     dispatch({
       type: types.GET_MEDICINE_FOR,
       userId: _user.userDetails._id,
-      medicineFor: props.route.params.friends._id,
+      medicineFor: props.route.params.friends,
       text: input
     })
+
+    let data = selectedFreinds;
+    data.push(input)
+    setSelectedFreinds(data)
+    let _data = selectedFreinds[selectedFreinds.length - 1];
+    props.navigation.navigate('MedicineReminder_4', {
+      screen: 'MedicineReminder_4',
+      params: {
+        medicineName: props.route.params.friends,
+        medicineCategory: props.route.params.medicineCategory,
+        friends: _data
+      }
+    });
 
   };
 
@@ -85,11 +100,16 @@ const MedicineReminder_3 = props => {
   return (
     <View style={{height: "100%", width: "100%", backgroundColor: "white"}}>
       <View style={{height: 56, width: "100%", backgroundColor: "white", elevation: 10}}>
+
+      <TouchableOpacity style={{height: 30, width: 30, backgroundColor: "white", position: 'absolute', top: 17.5, left: 7, justifyContent: 'center', alignItems: 'center'}}
+      onPress={()=>props.navigation.goBack()}>
+        <Image source={require('../../../res/images/Back.png')} style={{height: 22, width: 22}}/>
+      </TouchableOpacity>
       <Text style={{
       fontWeight: 'bold', 
       fontSize: 18.7, 
       top: 18, 
-      left: 45}}>Select Reason</Text>
+      left: 55}}>Select Reason</Text>
 
       <TouchableOpacity style={{
       height: 30, 
@@ -101,7 +121,7 @@ const MedicineReminder_3 = props => {
       alignItems: 'center',
       position: 'absolute'
     }}
-      onPress={()=>{props.navigation.goBack()}}>
+      onPress={()=>{props.navigation.navigate("ReminderCategory")}}>
       <Close />
      </TouchableOpacity>
       </View>
@@ -189,7 +209,46 @@ const MedicineReminder_3 = props => {
           </View>     
      </View>      
 
-      <View style={{height: 100, width: "100%", backgroundColor}}></View>
+      <View style={{
+        height: 85, 
+        width: "100%", 
+        backgroundColor: "#f0efef", 
+        borderTopColor: "#CCC", 
+        borderTopWidth: 1.5, 
+        top: -15}}>
+
+        <Text style={{
+          left: 15, 
+          fontWeight: 'bold', 
+          fontSize: 18, 
+          top: 18}}>What are you taking it for?</Text>
+      </View>
+
+      <View style={{
+        height: "100%", 
+        width: "100%", 
+        backgroundColor: "white", 
+        top: -35, 
+        borderTopRightRadius: 15, 
+        borderTopLeftRadius: 15}}>
+
+<FlatList
+    data={options}
+    horizontal={false}
+    keyExtractor={item => item._id}
+    numColumns={1}
+    style={{top: 10}}
+    renderItem={({ item }) => (
+      <MedicineForm
+        item={item}
+        onBgSelect={updateQuery}
+      />
+    )}
+  />
+
+
+          
+      </View>
 
     </View>
   );

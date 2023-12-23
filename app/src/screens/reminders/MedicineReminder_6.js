@@ -9,7 +9,8 @@ import {
   ImageBackground,
   FlatList,
   ScrollView,
-  ToastAndroid
+  ToastAndroid,
+  Image
 } from 'react-native';
 import colors from '../../../res/colors';
 import images from '../../../res/images_url';
@@ -23,6 +24,7 @@ import * as types from '../startup/types';
 import { DatePicker, Picker } from 'react-native-wheel-datepicker';
 
 import Close from '../../../res/images/Close.svg';
+import { white } from 'react-native-paper/lib/typescript/styles/colors';
 const MedicineReminder_6 = props => {
 
   let x = {
@@ -138,176 +140,143 @@ const MedicineReminder_6 = props => {
   };
 
   return (
-    <>
-      <BaseSafeAreaView style={{ backgroundColor: colors.white }}>
-        <View style={{ flex: 1, margin: 15, flexDirection: "column" }}>
+    <View style={{height: "100%", width: "100%", backgroundColor: "white"}}>
+    <View style={{height: 56, width: "100%", backgroundColor: "white", elevation: 10}}>
 
-          <View
-            style={{ flex: 1.5, flexDirection: "column" }}
+    <TouchableOpacity style={{height: 30, width: 30, backgroundColor: "white", position: 'absolute', top: 17.5, left: 7, justifyContent: 'center', alignItems: 'center'}}
+    onPress={()=>props.navigation.goBack()}>
+      <Image source={require('../../../res/images/Back.png')} style={{height: 22, width: 22}}/>
+    </TouchableOpacity>
+    <Text style={{
+    fontWeight: 'bold', 
+    fontSize: 18.7, 
+    top: 18, 
+    left: 55}}>Select Dose</Text>
+
+    <TouchableOpacity style={{
+    height: 30, 
+    width: 30, 
+    backgroundColor: "white", 
+    left: "89%", 
+    top: 17, 
+    justifyContent: 'center', 
+    alignItems: 'center',
+    position: 'absolute'
+  }}
+    onPress={()=>{props.navigation.navigate("ReminderCategory")}}>
+    <Close />
+   </TouchableOpacity>
+    </View>
+
+
+    <View style={{
+    height: 62, 
+    width: "93%", 
+    left: 15, 
+    top: 0}}>
+
+   <View style={{
+          ...styles.textareaWithBackground, marginTop: 20, flex: .05,
+          //backgroundColor:'pink'
+        }}>
+
+          <Text
+            style={{
+              flex: 1,
+              backgroundColor: '#055F9B',
+              flexDirection: 'column',
+              marginRight: 5,
+              borderRadius: 20,
+              height: 5
+            }}
           >
-            <View style={{
-              marginTop: 5,
-              flexDirection: 'row',
-            }}>
-              <Text
-                style={{
-                  flex: 1,
-                  flexDirection: 'row',
-                  paddingLeft: 10,
-                  paddingTop: 10,
-                  fontSize: 18,
-                  fontWeight: 'bold'
+          </Text>
+          <Text
+            style={{
+              flex: 1,
+              backgroundColor: '#055F9B',
+              flexDirection: 'column',
+              marginRight: 5,
+              borderRadius: 20,
+              height: 5
+            }}
+          >
+          </Text>
+          <Text
+            style={{
+              flex: 1,
+              backgroundColor: '#055F9B',
+              flexDirection: 'column',
+              marginRight: 5,
+              borderRadius: 20,
+              height: 5
+            }}
+          >
+          </Text>
+          <Text
+            style={{
+              flex: 1,
+              backgroundColor: '#055F9B',
+              flexDirection: 'column',
+              marginRight: 5,
+              borderRadius: 20,
+              height: 5
+            }}
+          >
+          </Text>
 
-                }}
-              >
-                Select Dose
-              </Text>
-              <View
-                style={{
-                  flex: .1,
-                  flexDirection: 'row',
-                  paddingLeft: 10,
-                  paddingTop: 16,
-                }}
-              >
-                <TouchableOpacity
-                  onPress={() => {
-                    props.navigation.goBack();
-                  }
-                  }
-                >
-                  <Close />
-                </TouchableOpacity>
+          <Text
+            style={{
+              flex: 1,
+              backgroundColor: '#055F9B',
+              flexDirection: 'column',
+              marginRight: 5,
+              borderRadius: 20,
+              height: 5
+            }}
+          >
+          </Text>
 
-              </View>
+          <Text
+            style={{
+              flex: 1,
+              backgroundColor: '#055F9B',
+              flexDirection: 'column',
+              marginRight: 5,
+              borderRadius: 20,
+              height: 5
+            }}
+          >
+          </Text>       
+        </View>     
+   </View>      
 
-            </View>
+    <View style={{
+      height: 85, 
+      width: "100%", 
+      backgroundColor: "#f0efef", 
+      borderTopColor: "#CCC", 
+      borderTopWidth: 1.5, 
+      top: -15}}>
 
-            <View
-              style={{
-                //backgroundColor: 'blue',
-                borderTopColor: 'white',
-                borderBottomColor: '#f2f2f2',
-                borderWidth: 5,
-                borderLeftColor: 'white',
-                borderRightColor: 'white',
-              }}>
-            </View>
+     <Text style={{
+        left: 15, 
+        fontWeight: 'bold', 
+        fontSize: 18, 
+        top: 17,
+        width: "80%"
+        }}>What are dosage timings?</Text>
+    </View>
 
-            <View style={{
-              ...styles.textareaWithBackground, marginTop: 20, flex: .05,
-              //     backgroundColor:'pink'
-            }}>
+    <View style={{
+      height: "70%", 
+      width: "100%", 
+      backgroundColor: "white", 
+      top: -35, 
+      borderTopRightRadius: 15, 
+      borderTopLeftRadius: 15}}>
 
-              <Text
-                style={{
-                  flex: 1,
-                  backgroundColor: '#055F9B',
-                  flexDirection: 'column',
-                  marginRight: 5,
-                  borderRadius: 20,
-                  height: 10
-                }}
-              >
-              </Text>
-              <Text
-                style={{
-                  flex: 1,
-                  backgroundColor: '#055F9B',
-                  flexDirection: 'column',
-                  marginRight: 5,
-                  borderRadius: 20,
-                  height: 10
-                }}
-              >
-              </Text>
-              <Text
-                style={{
-                  flex: 1,
-                  backgroundColor: '#055F9B',
-                  flexDirection: 'column',
-                  marginRight: 5,
-                  borderRadius: 20,
-                  height: 10
-                }}
-              >
-              </Text>
-              <Text
-                style={{
-                  flex: 1,
-                  backgroundColor: '#055F9B',
-                  flexDirection: 'column',
-                  marginRight: 5,
-                  borderRadius: 20,
-                  height: 10
-                }}
-              >
-              </Text>
-              <Text
-                style={{
-                  flex: 1,
-                  backgroundColor: '#055F9B',
-                  flexDirection: 'column',
-                  marginRight: 5,
-                  borderRadius: 20,
-                  height: 10
-                }}
-              >
-              </Text>
-              <Text
-                style={{
-                  flex: 1,
-                  backgroundColor: '#055F9B',
-                  flexDirection: 'column',
-                  marginRight: 5,
-                  borderRadius: 20,
-                  height: 10
-                }}
-              >
-              </Text>
-              {/**
-            <Text
-              style={{
-                flex: 1,
-                backgroundColor: '#f2f2f2',
-                flexDirection: 'column',
-                marginRight: 5,
-                borderRadius: 20,
-                height: 10
-              }}
-            >
-            </Text>
-             */}
-
-
-            </View>
-
-            <View style={{
-              ...styles.textareaWithBackground, marginTop: 10, flex: .05,
-              //backgroundColor: 'orange'
-            }}>
-
-              <View
-                style={{
-                  //backgroundColor: 'blue',
-                  borderTopColor: '#f2f2f2',
-                  borderBottomColor: 'white',
-                  borderWidth: 2,
-                  borderLeftColor: 'white',
-                  borderRightColor: 'white',
-                  width: '100%'
-                }}>
-                <Text></Text>
-              </View>
-
-
-            </View>
-
-
-          </View>
-
-
-          <View
+<View
             style={{ flex: 7.5, flexDirection: "column", marginBottom: 10 }}
           >
             <ScrollView>
@@ -325,7 +294,7 @@ const MedicineReminder_6 = props => {
                     ...styles.textareaWithBackground, marginTop: 10, flex: .1,
                     // backgroundColor: 'pink'
                   }}>
-                    <Text>When do you take your first dose?</Text>
+                    <Text style={{left: 20, fontWeight: 'bold', fontSize: 15.5, top: 4}}>When do you take your first dose?</Text>
                   </View>
 
                   <View style={{
@@ -358,7 +327,7 @@ const MedicineReminder_6 = props => {
                       // selectedValue={onboardingState.inputValues.birthYear.toString()}
                       //pickerData={ageData(1931, 1971)}
                       selectedValue={selectedMin}
-                      pickerData={['00', '05', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55']}
+                      pickerData={['00', '15', '30', '45']}
                       // onboardingQuestionsList[questionIdCount].min or max
                       onValueChange={onDoseValueChangeMin}
                     />
@@ -412,7 +381,7 @@ const MedicineReminder_6 = props => {
                     ...styles.textareaWithBackground, marginTop: 10, flex: .1,
                     // backgroundColor: 'pink'
                   }}>
-                    <Text>When do you take your second dose?</Text>
+                    <Text style={{left: 20, fontWeight: 'bold', fontSize: 15.5, top: 4}}>When do you take your second dose?</Text>
                   </View>
 
                   <View style={{
@@ -446,7 +415,7 @@ const MedicineReminder_6 = props => {
                       // selectedValue={onboardingState.inputValues.birthYear.toString()}
                       //pickerData={ageData(1931, 1971)}
                       selectedValue={selectedMin2}
-                      pickerData={['00', '05', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55']}
+                      pickerData={['00', '15', '30', '45']}
                       // onboardingQuestionsList[questionIdCount].min or max
                       onValueChange={onDoseValueChangeMin2}
                     />
@@ -498,7 +467,7 @@ const MedicineReminder_6 = props => {
                     ...styles.textareaWithBackground, marginTop: 10, flex: .1,
                     // backgroundColor: 'pink'
                   }}>
-                    <Text>When do you take your third dose?</Text>
+                    <Text style={{left: 20, fontWeight: 'bold', fontSize: 15.5, top: 4}}>When do you take your third dose?</Text>
                   </View>
 
                   <View style={{
@@ -531,7 +500,7 @@ const MedicineReminder_6 = props => {
                       // selectedValue={onboardingState.inputValues.birthYear.toString()}
                       //pickerData={ageData(1931, 1971)}
                       selectedValue={selectedMin3}
-                      pickerData={['00', '05', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55']}
+                      pickerData={['00', '15', '30', '45']}
                       // onboardingQuestionsList[questionIdCount].min or max
                       onValueChange={onDoseValueChangeMin3}
                     />
@@ -593,75 +562,55 @@ const MedicineReminder_6 = props => {
             </ScrollView>
           </View>
 
+    </View>
 
-          <View
-            style={{ flex: 1, flexDirection: "column" }}
-          >
-            <View style={{
-              ...styles.button_container,
-              //backgroundColor: 'pink', 
-            }}>
-              <TouchableOpacity
-                style={styles.button}
-                onPress={() => {
+    <View style={{height: 70, width: "100%", backgroundColor: "white", top: -40, justifyContent: 'center', alignItems: 'center'}}>
+      <TouchableOpacity style={{height: 45, width: "90%", backgroundColor: "#055F9B", borderRadius: 10, justifyContent: 'center', alignItems: 'center'}}
+       onPress={() => {
 
-                  let _time = '00:00_AM'
-                  let _time2 = '00:00_AM'
-                  let _time3 = '00:00_AM'
+        let _time = '00:00_AM'
+        let _time2 = '00:00_AM'
+        let _time3 = '00:00_AM'
 
-                  try {
-                    _time = selectedHr + ':' + selectedMin + '_' + selectedAmPm
-                  } catch (error) {
+        try {
+          _time = selectedHr + ':' + selectedMin + '_' + selectedAmPm
+        } catch (error) {
 
-                  }
-                  try {
-                    _time2 = selectedHr2 + ':' + selectedMin2 + '_' + selectedAmPm2
+        }
+        try {
+          _time2 = selectedHr2 + ':' + selectedMin2 + '_' + selectedAmPm2
 
-                  } catch (error) {
+        } catch (error) {
 
-                  }
-                  try {
-                    _time3 = selectedHr3 + ':' + selectedMin3 + '_' + selectedAmPm3
+        }
+        try {
+          _time3 = selectedHr3 + ':' + selectedMin3 + '_' + selectedAmPm3
 
-                  } catch (error) {
+        } catch (error) {
 
-                  }
+        }
 
-                  dispatch({
-                    type: types.SET_MEDICINE_REMINDER,
-                    userId: _user.userDetails._id,
-                    medicineName: props.route.params.medicineName,
-                    medicineCategory: props.route.params.medicineCategory,
-                    medicineFor: props.route.params.medicineFor,
-                    frequency: props.route.params.frequency,
-                    _time: _time,
-                    _time2: _time2,
-                    _time3: _time3
-                  })
+        dispatch({
+          type: types.SET_MEDICINE_REMINDER,
+          userId: _user.userDetails._id,
+          medicineName: props.route.params.medicineName,
+          medicineCategory: props.route.params.medicineCategory,
+          medicineFor: props.route.params.medicineFor,
+          frequency: props.route.params.frequency,
+          _time: _time,
+          _time2: _time2,
+          _time3: _time3
+        })
 
 
-                  /*
-                                  props.navigation.navigate('CreateCommunityHash', {
-                                    screen: 'CreateCommunityHash',
-                                    params: {
-                                      //name: props.route.params.params.name,
-                                      //privacy: props.route.params.params.privacy,
-                                      //description: props.route.params.params.description,
-                                      //category: props.route.params.params.category,
-                                      friends: selectedFreinds
-                                    }
-                                  });
-                                  */
-                }}>
+       
+      }}
+      >
+        <Text style={{color: "white", fontWeight: 'bold', fontSize: 17}}>SET REMINDER</Text>
+      </TouchableOpacity>
+    </View>
 
-                <Text style={styles.continue_text}>SET REMINDER</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-
-        </View>
-      </BaseSafeAreaView>
-    </>
+  </View>
   );
 };
 

@@ -8,6 +8,8 @@ import {
   Keyboard,
   ImageBackground,
   FlatList,
+  Image,
+  ScrollView
 } from 'react-native';
 import colors from '../../../res/colors';
 import images from '../../../res/images_url';
@@ -31,11 +33,11 @@ const MedicineReminder_2 = props => {
     dispatch({
       type: types.GET_MEDICINE_NAME,
       userId: _user.userDetails._id,
-      medicineCategory: props.route.params.friend
+      medicineCategory: props.route.params.friends
     })
 
 
-  }, [props.route.params.friend]);
+  }, [props.route.params.friends]);
 
   
   const friendsList = useSelector(
@@ -56,7 +58,7 @@ const MedicineReminder_2 = props => {
     props.navigation.navigate('MedicineReminder_3', {
       screen: 'MedicineReminder_3',
       params: {
-        medicineCategory: props.route.params.friend,
+        medicineCategory: props.route.params.friends,
         friends: _data
       }
     });
@@ -77,64 +79,42 @@ const MedicineReminder_2 = props => {
 
 
   return (
-    <>
-      <BaseSafeAreaView style={{ backgroundColor: colors.white }}>
-        <View style={{ flex: 1, margin: 15, }}>
+    <View style={{height: "100%", width: "100%", backgroundColor: "white"}}>
+      <View style={{height: 56, width: "100%", backgroundColor: "white", elevation: 10}}>
 
-          <View style={{
-            flex: .1,
-            marginTop: 5,
-            flexDirection: 'row',
-          }}>
-            <Text
-              style={{
-                flex: 1,
-                flexDirection: 'row',
-                paddingLeft: 10,
-                paddingTop: 10,
-                fontSize: 18,
-                fontWeight: 'bold'
+      <TouchableOpacity style={{height: 30, width: 30, backgroundColor: "white", position: 'absolute', top: 17.5, left: 7, justifyContent: 'center', alignItems: 'center'}}
+      onPress={()=>props.navigation.goBack()}>
+        <Image source={require('../../../res/images/Back.png')} style={{height: 22, width: 22}}/>
+      </TouchableOpacity>
+      <Text style={{
+      fontWeight: 'bold', 
+      fontSize: 18.7, 
+      top: 18, 
+      left: 55}}>Select Medicine</Text>
 
-              }}
-            >
-              Select Medicine
-            </Text>
-            <View
-              style={{
-                flex: .1,
-                flexDirection: 'row',
-                paddingLeft: 10,
-                paddingTop: 16,
-              }}
-            >
-              <TouchableOpacity
-                onPress={() => {
-                  props.navigation.goBack();
-                }
-                }
-              >
-                <Close />
-              </TouchableOpacity>
-
-            </View>
-
-          </View>
-
-          <View
-            style={{
-              //backgroundColor: 'blue',
-              borderTopColor: 'white',
-              borderBottomColor: '#f2f2f2',
-              borderWidth: 5,
-              borderLeftColor: 'white',
-              borderRightColor: 'white',
-            }}>
-          </View>
+      <TouchableOpacity style={{
+      height: 30, 
+      width: 30, 
+      backgroundColor: "white", 
+      left: "89%", 
+      top: 17, 
+      justifyContent: 'center', 
+      alignItems: 'center',
+      position: 'absolute'
+    }}
+      onPress={()=>{props.navigation.navigate("ReminderCategory")}}>
+      <Close />
+     </TouchableOpacity>
+      </View>
 
 
+      <View style={{
+      height: 62, 
+      width: "93%", 
+      left: 15, 
+      top: 0}}>
 
-
-          <View style={{
+     <View style={{
             ...styles.textareaWithBackground, marginTop: 20, flex: .05,
             //backgroundColor:'pink'
           }}>
@@ -146,7 +126,7 @@ const MedicineReminder_2 = props => {
                 flexDirection: 'column',
                 marginRight: 5,
                 borderRadius: 20,
-                height: 10
+                height: 5
               }}
             >
             </Text>
@@ -157,7 +137,7 @@ const MedicineReminder_2 = props => {
                 flexDirection: 'column',
                 marginRight: 5,
                 borderRadius: 20,
-                height: 10
+                height: 5
               }}
             >
             </Text>
@@ -168,7 +148,7 @@ const MedicineReminder_2 = props => {
                 flexDirection: 'column',
                 marginRight: 5,
                 borderRadius: 20,
-                height: 10
+                height: 5
               }}
             >
             </Text>
@@ -179,10 +159,11 @@ const MedicineReminder_2 = props => {
                 flexDirection: 'column',
                 marginRight: 5,
                 borderRadius: 20,
-                height: 10
+                height: 5
               }}
             >
             </Text>
+
             <Text
               style={{
                 flex: 1,
@@ -190,10 +171,11 @@ const MedicineReminder_2 = props => {
                 flexDirection: 'column',
                 marginRight: 5,
                 borderRadius: 20,
-                height: 10
+                height: 5
               }}
             >
             </Text>
+
             <Text
               style={{
                 flex: 1,
@@ -201,91 +183,64 @@ const MedicineReminder_2 = props => {
                 flexDirection: 'column',
                 marginRight: 5,
                 borderRadius: 20,
-                height: 10
+                height: 5
               }}
             >
-            </Text>
+            </Text>       
+          </View>     
+     </View>      
 
-            
+      <View style={{
+        height: 85, 
+        width: "100%", 
+        backgroundColor: "#f0efef", 
+        borderTopColor: "#CCC", 
+        borderTopWidth: 1.5, 
+        top: -15}}>
 
+        <Text style={{
+          left: 15, 
+          fontWeight: 'bold', 
+          fontSize: 18, 
+          top: 18}}>What is the medicine name?</Text>
+      </View>
 
-          </View >
+      <View style={{
+        height: "100%", 
+        width: "100%", 
+        backgroundColor: "red", 
+        top: -35, 
+        borderTopRightRadius: 15, 
+        borderTopLeftRadius: 15}}>
 
-          <View style={{
-            ...styles.textareaWithBackground, marginTop: 10, flex: .05,
-            //backgroundColor: 'orange'
-          }}>
+        <ScrollView style={{
+          backgroundColor: "white", 
+          borderTopRightRadius: 15, 
+          borderTopLeftRadius: 15}}>
 
-            <View
+          <View style={{height: 200, width: "100%"}}>
+          <TextInput
               style={{
-                //backgroundColor: 'blue',
-                borderTopColor: '#f2f2f2',
-                borderBottomColor: 'white',
-                borderWidth: 2,
-                borderLeftColor: 'white',
-                borderRightColor: 'white',
-                width: '100%'
-              }}>
-              <Text></Text>
-            </View>
-
-
-          </View>
-
-          <View style={{
-            ...styles.textareaWithBackground, marginTop: 10, flex: .1,
-            // backgroundColor: 'pink'
-          }}>
-
-            <Text>What is the medicine name?</Text>
-
-
-          </View>
-
-
-
-          <View style={{
-            ...styles.bg_color_dots, flex: .1,
-            borderRadius: 10,
-            borderWidth: 1,
-            borderColor: '#000'
-          }}>
-
-            <TextInput
-              style={{
-                //marginHorizontal: 10, 
-                paddingLeft: 10
+                paddingLeft: 15,
+                height: 55, width: "92%",
+                backgroundColor: "#f0efef",
+                top: 18, left: 15, borderRadius: 10,
+                fontWeight: 'bold', fontSize: 16.5
               }}
-              placeholder="Search Medicine"
+              placeholder="Enter medicine name"
               onChangeText={updateQuery}
-              
             />
-          </View>
-          <View style={{
-            ...styles.bg_color_dots, flex: 1,
-            //backgroundColor: 'blue'
-          }}>
-            <FlatList
-              data={friendsList}
-              horizontal={false}
-              keyExtractor={item => item._id}
-              numColumns={1}
-              renderItem={itemData => (
-                <>
 
-                  <MedicineForm
-                    item={itemData.item}
-                    onBgSelect={onSelectBg}
-                  />
-
-                </>
-              )}
-            />
+            <TouchableOpacity style={{height: 40, width: 100, backgroundColor: "#055F9B", justifyContent: 'center', alignItems:'center', borderRadius: 5, top: 30, left: 17}}
+            onPress={()=>onSelectBg()}>
+              <Text style={{color: "white", fontWeight: 'bold', fontSize: 16}}>Next ></Text>
+            </TouchableOpacity>
           </View>
-          
-        </View >
-      </BaseSafeAreaView >
-    </>
+           
+          </ScrollView>
+      </View>
+
+    </View>
   );
 };
 

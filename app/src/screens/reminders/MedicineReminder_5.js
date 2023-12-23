@@ -8,6 +8,8 @@ import {
   Keyboard,
   ImageBackground,
   FlatList,
+  Image,
+  ScrollView
 } from 'react-native';
 import colors from '../../../res/colors';
 import images from '../../../res/images_url';
@@ -85,238 +87,158 @@ const MedicineReminder_5 = props => {
 
 
   return (
-    <>
-      <BaseSafeAreaView style={{ backgroundColor: colors.white }}>
-        <View style={{ flex: 1, margin: 15, }}>
+    <View style={{height: "100%", width: "100%", backgroundColor: "white"}}>
+    <View style={{height: 56, width: "100%", backgroundColor: "white", elevation: 10}}>
 
-          <View style={{
-            flex: .1,
-            marginTop: 5,
-            flexDirection: 'row',
-          }}>
-            <Text
-              style={{
-                flex: 1,
-                flexDirection: 'row',
-                paddingLeft: 10,
-                paddingTop: 10,
-                fontSize: 18,
-                fontWeight: 'bold'
+    <TouchableOpacity style={{height: 30, width: 30, backgroundColor: "white", position: 'absolute', top: 17.5, left: 7, justifyContent: 'center', alignItems: 'center'}}
+    onPress={()=>props.navigation.goBack()}>
+      <Image source={require('../../../res/images/Back.png')} style={{height: 22, width: 22}}/>
+    </TouchableOpacity>
+    <Text style={{
+    fontWeight: 'bold', 
+    fontSize: 18.7, 
+    top: 18, 
+    left: 55}}>Select Time of Day</Text>
 
-              }}
-            >
-              Select Time
-            </Text>
-            <View
-              style={{
-                flex: .1,
-                flexDirection: 'row',
-                paddingLeft: 10,
-                paddingTop: 16,
-              }}
-            >
-              <TouchableOpacity
-                onPress={() => {
-                  props.navigation.goBack();
-                }
-                }
-              >
-                <Close />
-              </TouchableOpacity>
+    <TouchableOpacity style={{
+    height: 30, 
+    width: 30, 
+    backgroundColor: "white", 
+    left: "89%", 
+    top: 17, 
+    justifyContent: 'center', 
+    alignItems: 'center',
+    position: 'absolute'
+  }}
+    onPress={()=>{props.navigation.navigate("ReminderCategory")}}>
+    <Close />
+   </TouchableOpacity>
+    </View>
 
-            </View>
 
-          </View>
+    <View style={{
+    height: 62, 
+    width: "93%", 
+    left: 15, 
+    top: 0}}>
 
-          <View
+   <View style={{
+          ...styles.textareaWithBackground, marginTop: 20, flex: .05,
+          //backgroundColor:'pink'
+        }}>
+
+          <Text
             style={{
-              //backgroundColor: 'blue',
-              borderTopColor: 'white',
-              borderBottomColor: '#f2f2f2',
-              borderWidth: 5,
-              borderLeftColor: 'white',
-              borderRightColor: 'white',
-            }}>
-          </View>
+              flex: 1,
+              backgroundColor: '#055F9B',
+              flexDirection: 'column',
+              marginRight: 5,
+              borderRadius: 20,
+              height: 5
+            }}
+          >
+          </Text>
+          <Text
+            style={{
+              flex: 1,
+              backgroundColor: '#055F9B',
+              flexDirection: 'column',
+              marginRight: 5,
+              borderRadius: 20,
+              height: 5
+            }}
+          >
+          </Text>
+          <Text
+            style={{
+              flex: 1,
+              backgroundColor: '#055F9B',
+              flexDirection: 'column',
+              marginRight: 5,
+              borderRadius: 20,
+              height: 5
+            }}
+          >
+          </Text>
+          <Text
+            style={{
+              flex: 1,
+              backgroundColor: '#055F9B',
+              flexDirection: 'column',
+              marginRight: 5,
+              borderRadius: 20,
+              height: 5
+            }}
+          >
+          </Text>
 
+          <Text
+            style={{
+              flex: 1,
+              backgroundColor: '#055F9B',
+              flexDirection: 'column',
+              marginRight: 5,
+              borderRadius: 20,
+              height: 5
+            }}
+          >
+          </Text>
 
+          <Text
+            style={{
+              flex: 1,
+              backgroundColor: '#CCC',
+              flexDirection: 'column',
+              marginRight: 5,
+              borderRadius: 20,
+              height: 5
+            }}
+          >
+          </Text>       
+        </View>     
+   </View>      
 
+    <View style={{
+      height: 85, 
+      width: "100%", 
+      backgroundColor: "#f0efef", 
+      borderTopColor: "#CCC", 
+      borderTopWidth: 1.5, 
+      top: -15}}>
 
-          <View style={{
-            ...styles.textareaWithBackground, marginTop: 20, flex: .05,
-            //backgroundColor:'pink'
-          }}>
+     <Text style={{
+        left: 15, 
+        fontWeight: 'bold', 
+        fontSize: 17, 
+        top: 8,
+        width: "80%"
+        }}>At what time of day do you take your first dose?</Text>
+    </View>
 
-            <Text
-              style={{
-                flex: 1,
-                backgroundColor: '#055F9B',
-                flexDirection: 'column',
-                marginRight: 5,
-                borderRadius: 20,
-                height: 10
-              }}
-            >
-            </Text>
-            <Text
-              style={{
-                flex: 1,
-                backgroundColor: '#055F9B',
-                flexDirection: 'column',
-                marginRight: 5,
-                borderRadius: 20,
-                height: 10
-              }}
-            >
-            </Text>
-            <Text
-              style={{
-                flex: 1,
-                backgroundColor: '#055F9B',
-                flexDirection: 'column',
-                marginRight: 5,
-                borderRadius: 20,
-                height: 10
-              }}
-            >
-            </Text>
-            <Text
-              style={{
-                flex: 1,
-                backgroundColor: '#055F9B',
-                flexDirection: 'column',
-                marginRight: 5,
-                borderRadius: 20,
-                height: 10
-              }}
-            >
-            </Text>
-            <Text
-              style={{
-                flex: 1,
-                backgroundColor: '#055F9B',
-                flexDirection: 'column',
-                marginRight: 5,
-                borderRadius: 20,
-                height: 10
-              }}
-            >
-            </Text>
-            <Text
-              style={{
-                flex: 1,
-                backgroundColor: '#CCC',
-                flexDirection: 'column',
-                marginRight: 5,
-                borderRadius: 20,
-                height: 10
-              }}
-            >
-            </Text>
-            {/**
-            <Text
-              style={{
-                flex: 1,
-                backgroundColor: '#f2f2f2',
-                flexDirection: 'column',
-                marginRight: 5,
-                borderRadius: 20,
-                height: 10
-              }}
-            >
-            </Text>
-             */}
+    <View style={{
+      height: "100%", 
+      width: "100%", 
+      backgroundColor: "white", 
+      top: -35, 
+      borderTopRightRadius: 15, 
+      borderTopLeftRadius: 15}}>
 
+<FlatList
+    data={friendsList}
+    horizontal={false}
+    keyExtractor={item => item._id}
+    numColumns={1}
+    style={{top: 10}}
+    renderItem={({ item }) => (
+      <MedicineForm
+        item={item}
+        onBgSelect={onSelectBg}
+      />
+    )}
+  />
+    </View>
 
-          </View>
-
-          <View style={{
-            ...styles.textareaWithBackground, marginTop: 10, flex: .05,
-            //backgroundColor: 'orange'
-          }}>
-
-            <View
-              style={{
-                //backgroundColor: 'blue',
-                borderTopColor: '#f2f2f2',
-                borderBottomColor: 'white',
-                borderWidth: 2,
-                borderLeftColor: 'white',
-                borderRightColor: 'white',
-                width: '100%'
-              }}>
-              <Text></Text>
-            </View>
-
-
-          </View>
-
-          <View style={{
-            ...styles.textareaWithBackground, marginTop: 10, flex: .1,
-            // backgroundColor: 'pink'
-          }}>
-
-            <Text>At what time of day do you take your first dose?</Text>
-
-
-          </View>
-
-
-
-          <View style={{
-            ...styles.bg_color_dots, flex: 1,
-            //backgroundColor: 'blue'
-          }}>
-
-
-            <FlatList
-              data={friendsList}
-              horizontal={false}
-              keyExtractor={item => item._id}
-              numColumns={1}
-              renderItem={itemData => (
-                <>
-
-                  <MedicineForm
-                    item={itemData.item}
-                    onBgSelect={onSelectBg}
-                  />
-
-                </>
-              )}
-            />
-          </View>
-
-          {/*
-          <View style={{
-            ...styles.button_container,
-            //backgroundColor: 'pink', 
-            flex: .1
-          }}>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => {
-
-                props.navigation.navigate('CreateCommunityHash', {
-                  screen: 'CreateCommunityHash',
-                  params: {
-                    //name: props.route.params.params.name,
-                    //privacy: props.route.params.params.privacy,
-                    //description: props.route.params.params.description,
-                    //category: props.route.params.params.category,
-                    friends: selectedFreinds
-                  }
-                });
-              }}>
-
-              <Text style={styles.continue_text}>INVITE FRIENDS</Text>
-            </TouchableOpacity>
-          </View>
-
-          */}
-        </View>
-      </BaseSafeAreaView>
-    </>
+  </View>
   );
 };
 
