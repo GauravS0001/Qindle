@@ -297,16 +297,19 @@ const MedicineReminder_6 = props => {
                     <Text style={{left: 20, fontWeight: 'bold', fontSize: 15.5, top: 4}}>When do you take your first dose?</Text>
                   </View>
 
+                  
+
                   <View style={{
                     ...styles.bg_color_dots, flex: 1,
-                    width: '80%',
-                    marginLeft: '10%'
+                    width: '100%',
+                    marginLeft: '-2%'
+                    
                   }}>
-
+                      
 
                     <Picker
                       style={{
-                        flex: 1, backgroundColor: '#F0F0F0',
+                        flex: 1, backgroundColor: 'white',
                       }}
                       textSize={20}
                       itemSpace={30}
@@ -318,7 +321,7 @@ const MedicineReminder_6 = props => {
                     />
                     <Picker
                       style={{
-                        flex: 1, backgroundColor: '#F0F0F0',
+                        flex: 1, backgroundColor: 'white',
                       }}
                       //textColor={colors.picker_value}
                       textSize={20}
@@ -334,7 +337,7 @@ const MedicineReminder_6 = props => {
 
                     <Picker
                       style={{
-                        flex: 1, backgroundColor: '#F0F0F0',
+                        flex: 1, backgroundColor: 'white',
                       }}
                       //textColor={colors.picker_value}
                       textSize={20}
@@ -394,7 +397,7 @@ const MedicineReminder_6 = props => {
 
                     <Picker
                       style={{
-                        flex: 1, backgroundColor: '#F0F0F0',
+                        flex: 1, backgroundColor: 'white',
                       }}
                       textSize={20}
                       itemSpace={30}
@@ -406,7 +409,7 @@ const MedicineReminder_6 = props => {
                     />
                     <Picker
                       style={{
-                        flex: 1, backgroundColor: '#F0F0F0',
+                        flex: 1, backgroundColor: 'white',
                       }}
                       //textColor={colors.picker_value}
                       textSize={20}
@@ -422,7 +425,7 @@ const MedicineReminder_6 = props => {
 
                     <Picker
                       style={{
-                        flex: 1, backgroundColor: '#F0F0F0',
+                        flex: 1, backgroundColor: 'white',
                       }}
                       //textColor={colors.picker_value}
                       textSize={20}
@@ -479,7 +482,7 @@ const MedicineReminder_6 = props => {
 
                     <Picker
                       style={{
-                        flex: 1, backgroundColor: '#F0F0F0',
+                        flex: 1, backgroundColor: 'white',
                       }}
                       textSize={20}
                       itemSpace={30}
@@ -491,7 +494,7 @@ const MedicineReminder_6 = props => {
                     />
                     <Picker
                       style={{
-                        flex: 1, backgroundColor: '#F0F0F0',
+                        flex: 1, backgroundColor: 'white',
                       }}
                       //textColor={colors.picker_value}
                       textSize={20}
@@ -507,7 +510,7 @@ const MedicineReminder_6 = props => {
 
                     <Picker
                       style={{
-                        flex: 1, backgroundColor: '#F0F0F0',
+                        flex: 1, backgroundColor: 'white',
                       }}
                       //textColor={colors.picker_value}
                       textSize={20}
