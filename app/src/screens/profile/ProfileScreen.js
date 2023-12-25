@@ -199,7 +199,8 @@ const ProfileScreen = props => {
                   <Text style={{color: "gray", left: 68, fontSize: 15}}>Add or edit the address</Text>
                    <Image source={require('../../../res/images/Forward3.png')} style={{position: 'absolute', height: 30, width: 30, top: 25, left: "89.5%"}}/>
               </TouchableOpacity>
-              <TouchableOpacity style={{height: 80, width: "100%"}}>
+              <TouchableOpacity style={{height: 80, width: "100%"}}
+              onPress={()=>{props.navigation.navigate("ProfileRems")}}>
                 <Image source={require("../../../res/images/reminder.png")} style={{height: 40, width: 40, left: 16, top: 20}}/>
                  <Text style={{fontWeight: 'bold', position: 'absolute', top: 15, left: 68, fontSize: 17}}>Reminders</Text>
                   <Text style={{color: "gray", left: 68, fontSize: 14}}>View, add & manage reminders</Text>

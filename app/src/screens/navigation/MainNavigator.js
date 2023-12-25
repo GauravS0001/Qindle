@@ -90,6 +90,7 @@ import CreateCommunityHash from '../community/CreateCommunityHash';
 import CreateCommunityDone from '../community/CreateCommunityDone';
 import Aniversary from '../reminders/AniversaryReminder_1'
 import BillPayment from '../reminders/BillPaymentReminder_1'
+import Profile_Rems from '../Profile_Rems/Profile_Rems';
 
 //@todo check stacking of community , reminder tbd 
 const OTPStackNavigator = createStackNavigator();
@@ -875,6 +876,12 @@ export const HomeNavigator = () => {
       />
 
       <HomeStackNavigator.Screen
+        name="ProfileRems"
+        component={Profile_RemsNavigator}
+        options={{ cardStyleInterpolator: forFade }}
+      />
+
+      <HomeStackNavigator.Screen
         name="HealthCheckReminder_1"
         component={HealthCheckReminder_1Navigator}
         options={{ cardStyleInterpolator: forFade }}
@@ -1508,6 +1515,22 @@ export const BillPaymentNavigator = () => {
       <TextPostStackNavigator.Screen
         name="BillPayment"
         component={BillPayment}
+      />
+    </TextPostStackNavigator.Navigator>
+  );
+};
+
+export const Profile_RemsNavigator = () => {
+  return (
+    <TextPostStackNavigator.Navigator
+      screenOptions={{
+        headerTitle: '',
+        headerShown: false,
+        // headerTransparent: true,
+      }}>
+      <TextPostStackNavigator.Screen
+        name="ProfileRems"
+        component={Profile_Rems}
       />
     </TextPostStackNavigator.Navigator>
   );
