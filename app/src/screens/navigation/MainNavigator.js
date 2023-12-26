@@ -91,6 +91,7 @@ import CreateCommunityDone from '../community/CreateCommunityDone';
 import Aniversary from '../reminders/AniversaryReminder_1'
 import BillPayment from '../reminders/BillPaymentReminder_1'
 import Profile_Rems from '../Profile_Rems/Profile_Rems';
+import ReminderUpdateDelete from '../ReminderUpdateDelete/ReminderUpdateDelete';
 
 //@todo check stacking of community , reminder tbd 
 const OTPStackNavigator = createStackNavigator();
@@ -882,6 +883,12 @@ export const HomeNavigator = () => {
       />
 
       <HomeStackNavigator.Screen
+        name="ReminderUpdateDelete"
+        component={ReminderUpdateDeleteNavigator}
+        options={{ cardStyleInterpolator: forFade }}
+      />
+
+      <HomeStackNavigator.Screen
         name="HealthCheckReminder_1"
         component={HealthCheckReminder_1Navigator}
         options={{ cardStyleInterpolator: forFade }}
@@ -1531,6 +1538,22 @@ export const Profile_RemsNavigator = () => {
       <TextPostStackNavigator.Screen
         name="ProfileRems"
         component={Profile_Rems}
+      />
+    </TextPostStackNavigator.Navigator>
+  );
+};
+
+export const ReminderUpdateDeleteNavigator = () => {
+  return (
+    <TextPostStackNavigator.Navigator
+      screenOptions={{
+        headerTitle: '',
+        headerShown: false,
+        // headerTransparent: true,
+      }}>
+      <TextPostStackNavigator.Screen
+        name="ReminderUpdateDelete"
+        component={ReminderUpdateDelete}
       />
     </TextPostStackNavigator.Navigator>
   );
