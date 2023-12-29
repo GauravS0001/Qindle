@@ -1,6 +1,7 @@
 import React from "react";
 import { View, TouchableOpacity, Text, Image } from "react-native";
 import { useRoute } from "@react-navigation/native";
+import { useSelector } from "react-redux";
 const ReminderUpdateDelete = props => {
  
     
@@ -17,15 +18,18 @@ const ReminderUpdateDelete = props => {
        </View>
 
        <View style={{height: 100, width: "100%", backgroundColor: "transparent", flexWrap: "wrap", flexDirection: "row", justifyContent: "center", alignItems: "center"}}>
-        <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "#055F9B", marginTop: 40, borderRadius: 10}}>
-            <Image source={require('../../../res/images/Update.png')} style={{height: 25, width: 25, left: 20, top: 10}}/>
-             <Text style={{position: "absolute", color: "white", fontWeight: "bold", fontSize: 18, left: 60, top: 10}}>Update</Text>
+        <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "white", marginTop: 40, borderRadius: 10, borderWidth: 2, borderColor: "#055F9B"}}>
+            <Image source={require('../../../res/images/delete.png')} style={{height: 25, width: 25, left: 28, top: 10}}/>
+             <Text style={{position: "absolute", color: "black", fontWeight: "bold", fontSize: 18, left: 65, top: 10}}>Delete</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "rgb(226, 2, 2)", marginLeft: 20, borderRadius: 10}}>
-        <Image source={require('../../../res/images/delete.png')} style={{height: 25, width: 25, left: 20, top: 10}}/>
-             <Text style={{position: "absolute", color: "white", fontWeight: "bold", fontSize: 18, left: 60, top: 10}}>Delete</Text>
+        <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "#055F9B", marginLeft: 20, borderRadius: 10}}
+        onPress={()=>props.navigation.navigate("ReminderUpdate")}>
+        <Image source={require('../../../res/images/Update.png')} style={{height: 25, width: 25, left: 28, top: 10}}/>
+             <Text style={{position: "absolute", color: "white", fontWeight: "bold", fontSize: 18, left: 65, top: 10}}>Update</Text>
         </TouchableOpacity>
        </View>
+
+       
         </View>
     )
 }

@@ -325,11 +325,8 @@ function* getUserPostFull(data) {
       endpoint: GET_USER_POST_FULL + '/' + data.userId,
       method: 'GET'
     });
-    //let encryptData = aesEcryptionDecryption.decryptData(res);
-    //let result = JSON.parse(encryptData)
-    //console.log("_______________datA ______________", res);
+    
     yield put(userPostActions.getUserPostAll(res));
-    //console.log("12")
 
 
   } catch (err) {

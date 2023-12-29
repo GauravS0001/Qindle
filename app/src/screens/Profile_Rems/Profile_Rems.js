@@ -2,6 +2,8 @@ import React from "react";
 import { View, TouchableOpacity, Text, Image } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { useRoute } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
+import {setCategoryAndReminderUpdate} from '../../screens/ReminderUpdateDelete/RemUpdtActions'
 
 
 const Profile_Rems = props =>{
@@ -11,6 +13,13 @@ const Profile_Rems = props =>{
                 {category: "Medicine", date: "Sat Dec 30 2026", name: "Etilam"}, {category: "Bill payment", date: "Sat Dec 30 2026", name: "Water Bill"},
                 {category: "Health check", date: "Sat Dec 30 2026", name: "Measure B.P"}]
 
+
+  const dispatch = useDispatch();
+
+  function updt (category, reminderId, dte){
+    props.navigation.navigate("ReminderUpdateDelete")
+    dispatch(setCategoryAndReminderUpdate(category, reminderId, dte));
+  }
   
 
     return(
@@ -34,14 +43,7 @@ const Profile_Rems = props =>{
         <View style={{height: 10, width: "100%"}}></View>
         {rems.map((item, index)=>(
           <TouchableOpacity style={{height: 93, width: "90%", backgroundColor: "white", elevation: 2, left: 18.5, top: 20, borderBottomColor: "rgb(208, 206, 206)", borderBottomWidth: 1.5}} activeOpacity={0.8}
-          onPress={()=>props.navigation.navigate("ReminderUpdateDelete", 
-           {
-            params:{
-              category: item.category,
-              name: item.name,
-              date: item.date
-            }
-           })}>
+          onPress={()=>updt(item.category, item.name, item.date)}>
             <Image
               source={
                 item.category === "Medicine"
