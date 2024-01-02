@@ -85,6 +85,8 @@ const MedicineReminder_5 = props => {
 
   };
 
+  const TI =  useSelector(state => state.REDUCER_MED.medicineInterval)
+   
 
   return (
     <View style={{height: "100%", width: "100%", backgroundColor: "white"}}>
@@ -98,7 +100,7 @@ const MedicineReminder_5 = props => {
     fontWeight: 'bold', 
     fontSize: 18.7, 
     top: 18, 
-    left: 55}}>Select Time of Day</Text>
+    left: 55}}>Select Time of Day   {TI}</Text>
 
     <TouchableOpacity style={{
     height: 30, 
@@ -212,7 +214,7 @@ const MedicineReminder_5 = props => {
         fontSize: 17, 
         top: 8,
         width: "80%"
-        }}>At what time of day do you take your first dose?</Text>
+        }}>At what time of day do you take your first dose? </Text>
     </View>
 
     <View style={{

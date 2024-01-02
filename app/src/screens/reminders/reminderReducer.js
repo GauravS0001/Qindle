@@ -4,7 +4,7 @@ import createReducer from '../../lib/createReducer';
 import * as types from '../startup/types';
 
 const initialState = {
-  reminderCategory: [],
+  reminderCategory: '',
   medicineForm: [],
   medicineName: [],
   medicineFor: [],//need api
@@ -13,6 +13,7 @@ const initialState = {
   reinderNotificationSet: false, //FOR notification
   reinderNotificationData: [],//FOR notification,
   reinderNotificationShowCount: 0,//FOR notification,
+  userReminder: []
 };
 
 const reminderReducer = createReducer(initialState, {
@@ -121,6 +122,16 @@ const reminderReducer = createReducer(initialState, {
     let newState = {
       ...state,
       reminderFormComplete: false,
+    };
+    return newState;
+  },
+
+
+  [types.SET_REMINDERS_USERS ](state, action) {
+    console.log('SET_REMINDERS_USERS', action.payload)
+    let newState = {
+      ...state,
+      userReminder: action.response,
     };
     return newState;
   },

@@ -148,7 +148,7 @@ const Aniversary = props =>{
             borderRadius: 10}}>
 
               <TextInput
-              onInputChange={textChangeHandler}
+              onChangeText={textChangeHandler}
               maxLength={20}
               placeholder='Type birthday person name'
               style={{

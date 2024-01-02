@@ -22,6 +22,8 @@ import * as types from '../startup/types';
 
 import Close from '../../../res/images/Close.svg';
 import { ScrollView } from 'react-native-gesture-handler';
+import { setMedicineCategory, setMedicineName, setMedicineReason } from './ACTION_MED';
+
 const MedicineReminder_3 = props => {
 
   const dispatch = useDispatch();
@@ -69,7 +71,7 @@ const MedicineReminder_3 = props => {
 
   };*/
 
-  function updateQuery(input){
+  function updateQuery (input) {
 
     dispatch({
       type: types.GET_MEDICINE_FOR,
@@ -77,6 +79,8 @@ const MedicineReminder_3 = props => {
       medicineFor: props.route.params.friends,
       text: input
     })
+
+    dispatch(setMedicineReason(input))
 
     let data = selectedFreinds;
     data.push(input)
@@ -96,6 +100,8 @@ const MedicineReminder_3 = props => {
   const options = [{_id: "38yd9", name: "BP"}, {_id: "d3kjg", name: "Sugar"}, {_id: "s3ljh", name: "Pain"}, 
                    {_id: "jkg45", name: "Health Supplement"}, {_id: "kh32g", name: "Asthma"}, {_id: "jwh2e", name: "Acidity"},
                    {_id: "a8dfg", name: "Constipation"}, {_id: "hkg43", name: "Others"}];
+
+  
 
   return (
     <View style={{height: "100%", width: "100%", backgroundColor: "white"}}>
@@ -241,7 +247,7 @@ const MedicineReminder_3 = props => {
     renderItem={({ item }) => (
       <MedicineForm
         item={item}
-        onBgSelect={updateQuery}
+        onBgSelect={()=>updateQuery(item.name)}
       />
     )}
   />

@@ -44,3 +44,8 @@ export function setReminderComplte(response) {
     response,
   };
 }
+
+export const setReminderUsers = (response) => ({
+  type: types.SET_REMINDERS_USERS,
+  response,
+});

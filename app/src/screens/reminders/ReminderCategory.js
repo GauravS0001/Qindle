@@ -25,9 +25,6 @@ import { wrap } from 'lodash';
 const ReminderCategory = props => {
 
   const dispatch = useDispatch();
-  const communityCategory = useSelector(
-    state => state.community.communityCategory,
-  );
 
   const reminderCategory = useSelector(
     state => state.reminder.reminderCategory,
@@ -35,7 +32,7 @@ const ReminderCategory = props => {
 
  
 
-  
+  const test = [{},{},{}]
 
   useEffect(() => {
    
@@ -168,8 +165,8 @@ const ReminderCategory = props => {
         
         {/*Display reminder category blocks*/}
         <View style={{marginTop: 30}}>  
-        {reminderCategory.map((item) => (
-        <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+        {reminderCategory.map((item, index) => (
+        <View key={index} style={{flexDirection: 'row', flexWrap: 'wrap'}}>
         <ReminderCategoryCard
           key={item._id}
           item={item}

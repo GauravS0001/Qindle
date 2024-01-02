@@ -16,7 +16,8 @@ const ReminderCategoryCard = props => {
           props.item.name == "Birthday" ||
           props.item.name == "Health check"||
           props.item.name == "Bill payment"||
-          props.item.name == "Anniversary"?
+          props.item.name == "Anniversary"||
+          props.item.name == "testCat"?
           <TouchableOpacity
             onPress={(ele) => {
               onBgSelect(item);

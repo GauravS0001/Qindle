@@ -20,30 +20,22 @@ import MedicineForm from '../../components/UI/MedicineForm';
 import BaseSafeAreaView from '../../components/UI/BaseSafeAreaView';
 import { useDispatch, useSelector } from 'react-redux';
 import * as types from '../startup/types';
-
 import Close from '../../../res/images/Close.svg';
+import { setMedicineCategory, setMedicineName, setMedicineReason } from './ACTION_MED';
+
 const MedicineReminder_2 = props => {
 
   const dispatch = useDispatch();
 
   const _user = useSelector(state => state.user); //!!state.auth.token
 
+  const MedForm = useSelector(state => state.REDUCER_MED.medicineCategory) 
+  
+
   useEffect(() => {
    
-    dispatch({
-      type: types.GET_MEDICINE_NAME,
-      userId: _user.userDetails._id,
-      medicineCategory: props.route.params.friends
-    })
 
-
-  }, [props.route.params.friends]);
-
-  
-  const friendsList = useSelector(
-    state => state.reminder.medicineName,
-  );
-
+  }, []);
 
 
   const [selectedList, setSelectedList] = useState();
@@ -51,6 +43,7 @@ const MedicineReminder_2 = props => {
   const [selectedFreinds, setSelectedFreinds] = useState([]);
 
   const onSelectBg = item => {
+    
     let data = selectedFreinds;
     data.push(item)
     setSelectedFreinds(data)
@@ -68,12 +61,7 @@ const MedicineReminder_2 = props => {
   const updateQuery = input => {
 
 
-    dispatch({
-      type: types.GET_MEDICINE_NAME,
-      userId: _user.userDetails._id,
-      medicineCategory: props.route.params.friends._id,
-      text: input
-    })
+    dispatch(setMedicineName(input))
 
   };
 
@@ -227,7 +215,7 @@ const MedicineReminder_2 = props => {
                 top: 18, left: 15, borderRadius: 10,
                 fontWeight: 'bold', fontSize: 16.5
               }}
-              placeholder="Enter medicine name"
+              placeholder={"Enter name of "+MedForm}
               onChangeText={updateQuery}
             />
 
@@ -235,6 +223,8 @@ const MedicineReminder_2 = props => {
             onPress={()=>onSelectBg()}>
               <Text style={{color: "white", fontWeight: 'bold', fontSize: 16}}>Next ></Text>
             </TouchableOpacity>
+
+            
           </View>
            
           </ScrollView>

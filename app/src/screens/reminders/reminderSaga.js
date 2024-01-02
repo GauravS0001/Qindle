@@ -3,7 +3,13 @@ import { queryApi } from '../../api/queryApi';
 import { REMINDER_GET_CATEGORY, GET_MEDICINE_FORM, GET_MEDICINE_NAME, GET_MEDICINE_FOR, SAVE_MEDICINE_REMINDER } from '../../api/APIConstants';
 import * as types from '../startup/types';
 import * as reminderActions from './reminderActions';
+import { useSelector } from 'react-redux';
+import {setReminderUsers} from './reminderActions'
+import { camelCase } from 'lodash';
+
 var aesEcryptionDecryption = require('../../api/aes_encrypt_decrypt');
+
+//const _user = useSelector(state => state.user.userDetails._id);
 
 
 export function* reminderSaga() {
@@ -13,6 +19,7 @@ export function* reminderSaga() {
   yield takeEvery(types.GET_MEDICINE_FOR, getMedicineFor);
   yield takeEvery(types.SET_MEDICINE_REMINDER, setMedicineReminder);
   yield takeEvery(types.SET_REMINDER, setReminder);
+  yield takeEvery(types.SET_USER_REMINDERS, fetchRemindersForUserId)
 
 }
 
@@ -98,12 +105,6 @@ function* setReminder(data) {
 
     let _unixTime = d.getTime();
 
-    
-    //let _day = data.day.toISOString().slice(0, 10);
-    //let _time = data.time.toLocaleTimeString('it-IT');
-    //var newDate = new Date(_day + 'T' + _time);
-    //let _unixTime = newDate.getTime();
-    
     let _data = {
       "name": data.name,
       "type": data.reminderType,
@@ -146,7 +147,7 @@ function* setMedicineReminder(data) {
     });
     let encryptData = aesEcryptionDecryption.decryptData(res);
     let result = JSON.parse(encryptData);
-    yield put(reminderActions.setMedicineFormComplte(result));
+    yield put(reminderActions.setMedicineFormComplte(res));
 
 
   } catch (err) {
@@ -161,19 +162,43 @@ function* reminderCategory(data) {
   try {
 
     const res = yield call(queryApi, {
-      endpoint: REMINDER_GET_CATEGORY,
+      endpoint: 'http://192.168.1.6/api/getreminderoptions',
       method: 'GET',
     });
     let encryptData = aesEcryptionDecryption.decryptData(res);
     let result = JSON.parse(encryptData);
-
+    
+    console.log(result)
     
     yield put(reminderActions.setCategoryData(result));
 
 
   } catch (err) {
+    
+    
 
+  }
+}
 
+function* fetchRemindersForUserId(action) {
+
+  const userId  = action.payload; 
+ 
+  try {
+     
+    const res = yield call(queryApi, {
+      endpoint: `http://192.168.1.6/api/getRemindersByUserId/${userId}`,
+      method: 'POST',    
+    });
+
+    let encryptData = aesEcryptionDecryption.decryptData(res);  
+    let result = JSON.parse(encryptData);
+
+    yield put(setReminderUsers(result));
+
+  } catch (err) {
+    
+    console.error('Error fetching user data:', err);
   }
 }
 

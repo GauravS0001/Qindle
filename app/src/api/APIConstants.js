@@ -4,13 +4,17 @@ export const SECRETE_KEY = '273D70BB68A2DF22B2C5498CB712995C';
 export const SECRETE_IV = 'E4806F56EE621821';
 //export const LOCAL_HOST = '68.178.161.118';  //
 //export const LOCAL_HOST = 'darjeelingtour.in';  //
-export const LOCAL_HOST = 'aarambhlife.in';  //
+export const LOCAL_HOST = '192.168.1.6'; 
+//export const LOCAL_TEST_HOST = '192.168.1.4'
+
+export const LOCAL_TEST_HOST = '192.168.1.6'; 
 
 
 //export const LOCAL_HOST = '192.168.56.1';  //
 //export const LOCAL_HOST = '52a8-103-141-117-9.ngrok.io';  //
 
-export const PROTOCOL = 'https://';  //
+export const PROTOCOL = 'http://'; 
+export const LOCAL_TEST_PROTOCOL = 'http://';
 //export const PROTOCOL = 'http://';  //
 
 export const IMAGE_HOST = LOCAL_HOST;//'192.168.2.21:7000';  //
@@ -22,6 +26,8 @@ export const IMAGE_BASE = '/images/';  //
 
 
 export const BASE_URL = `${PROTOCOL}${LOCAL_HOST}/api/`;
+export const LOCAL_TEST_BASE_URL = `${LOCAL_TEST_PROTOCOL}${LOCAL_TEST_HOST}/api/`;
+
 export const OTP_GENERATE = `${BASE_URL}otp/generate`;
 export const OTP_CHALLENGE = `${BASE_URL}otp/challange`;
 export const SIGNUP = `${BASE_URL}signup`;
@@ -55,7 +61,9 @@ export const GET_COMMUNITY_POST_FOR_USER = `${BASE_URL}post/getAllPostDataByComm
 export const UPDATE_FRIEND_LIST = `${BASE_URL}user/updateFriendsList`;
 
 export const RECO_COMMUNITY = `${BASE_URL}communitiesSuggest`;
-export const REMINDER_GET_CATEGORY = `${BASE_URL}getreminderoptions`;
+export const REMINDER_GET_CATEGORY = `${LOCAL_TEST_BASE_URL}getAllRemind`;
+
+
 //export const GET_MEDICINE_FORM = `${BASE_URL}getdiseasedata/High`;
 export const GET_MEDICINE_FORM = `${BASE_URL}getmedicinecategories`;
 

@@ -23,6 +23,7 @@ import channelReducer from '../screens/channel/channelReducer';
 import shopReducer from '../screens/shop/shopReducer';
 import serviceReducer from '../screens/services/serviceReducer';
 import RemUpdtReducer from '../screens/ReminderUpdateDelete/RemUpdtReducer';
+import REDUCER_MED from '../screens/reminders/REDUCER_MED';
 
 
 
@@ -205,7 +206,8 @@ const rootReducer = combineReducers({
   addresses: AddressRedux,
   brands: BrandsRedux,
   filters: FilterRedux,
-  RemUpdtReducer: RemUpdtReducer
+  RemUpdtReducer: RemUpdtReducer,
+  REDUCER_MED: REDUCER_MED
 });
 
 

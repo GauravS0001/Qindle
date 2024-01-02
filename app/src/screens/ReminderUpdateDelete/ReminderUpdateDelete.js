@@ -1,9 +1,27 @@
 import React from "react";
 import { View, TouchableOpacity, Text, Image } from "react-native";
 import { useRoute } from "@react-navigation/native";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import * as types from '../startup/types';
+
 const ReminderUpdateDelete = props => {
- 
+
+    const dispatch = useDispatch();
+    const _user = useSelector(state => state.user);
+
+    const category = useSelector(state => state.RemUpdtReducer.category)
+    const id = useSelector(state => state.RemUpdtReducer.reminderId)
+
+
+    useEffect(() => {
+      
+    }, []); 
+
+    
+  
+
+
     
     
     return(
@@ -29,6 +47,13 @@ const ReminderUpdateDelete = props => {
         </TouchableOpacity>
        </View>
 
+        <Text>{category}</Text>
+        <Text>{id}</Text>
+
+         
+
+         
+      
        
         </View>
     )

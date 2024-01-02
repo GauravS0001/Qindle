@@ -22,6 +22,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as types from '../startup/types';
 
 import Close from '../../../res/images/Close.svg';
+import { setMedicineCategory, setMedicineName, setMedicineReason, setMedicineInterval } from './ACTION_MED';
+
 const MedicineReminder_4 = props => {
 
 
@@ -29,40 +31,29 @@ const MedicineReminder_4 = props => {
 
   const _user = useSelector(state => state.user); //!!state.auth.token
 
-  useEffect(() => {
-    /*
-    dispatch({
-      type: types.GET_USER_FRIENDS,
-      userId: _user.userDetails._id
-    })
-
-    dispatch({
-      type: types.GET_MEDICINE_FORM,
-      userId: _user.userDetails._id
-    })
-*/
+  useEffect(() => {    
 
   }, []);
 
-  // const friendsList = useSelector(
-  //   state => state.userPost.userFriends,
-  // );
-
 
   const friendsList = [
-    { 'name': 'Once Daily', _id: "1" },
-    { 'name': 'Twice Daily', _id: "2" },
-    { 'name': '3 times a day', _id: "3" },
-    { 'name': 'Every 6 hours', _id: "4" },
-    { 'name': 'Only as needed', _id: "5" },
-    { 'name': 'Others', _id: "6" }
+    {_id: "1", name: "Once Daily"},
+    {_id: "2", name: "Twice Daily"},
+    {_id: "3", name: "3 times a day"},
+    {_id: "4", name: "Every 6 hours"},
+    {_id: "5", name: "Only as needed"},
+    {_id: "6", name: "Others"}
   ]
 
   const [selectedFreinds, setSelectedFreinds] = useState([]);
-
-  const onSelectBg = item => {
+   
+  const REASON = useSelector(state => state.REDUCER_MED.medicineReason)
+   
+  function onSelectBg (input) {
+    dispatch(setMedicineInterval(input))
+    
     let data = selectedFreinds;
-    data.push(item)
+    data.push(input)
     setSelectedFreinds(data)
     let _data = selectedFreinds[selectedFreinds.length - 1];
     props.navigation.navigate('MedicineReminder_5', {
@@ -94,7 +85,7 @@ const MedicineReminder_4 = props => {
     fontWeight: 'bold', 
     fontSize: 18.7, 
     top: 18, 
-    left: 55}}>Select Time Interval</Text>
+    left: 55}}>Select Time Interval {REASON}</Text>
 
     <TouchableOpacity style={{
     height: 30, 
@@ -226,7 +217,7 @@ const MedicineReminder_4 = props => {
     renderItem={({ item }) => (
       <MedicineForm
         item={item}
-        onBgSelect={onSelectBg}
+        onBgSelect={()=> onSelectBg(item.name)}
       />
     )}
   />

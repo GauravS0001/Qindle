@@ -25,19 +25,18 @@ import { DatePicker, Picker } from 'react-native-wheel-datepicker';
 
 import Close from '../../../res/images/Close.svg';
 import { white } from 'react-native-paper/lib/typescript/styles/colors';
-const MedicineReminder_6 = props => {
-
-  let x = {
-    medicineName: props.route.params.medicineName,
-    medicineCategory: props.route.params.medicineCategory,
-    medicineFor: props.route.params.medicineFor,
-    frequency: props.route.params.frequency,
-  }
-  
+import {setMedicineReminder} from './reminderSaga'
+const MedicineReminder_6 = props => {  
 
   const dispatch = useDispatch();
 
   const _user = useSelector(state => state.user); //!!state.auth.token
+  const CATEGORY = useSelector(state => state.REDUCER_MED.medicineCategory)
+  const NAME = useSelector(state => state.REDUCER_MED.medicineName)
+  const REASON = useSelector(state => state.REDUCER_MED.medicineReason)
+  const INTERVAL = useSelector(state => state.REDUCER_MED.medicineInterval)
+
+  
 
 
   const _medicineFormComplete = useSelector(
@@ -53,14 +52,14 @@ const MedicineReminder_6 = props => {
     }
   }, [_medicineFormComplete]);
 
-  const friendsList = useSelector(
-    state => state.userPost.userFriends,
-  );
+  //const friendsList = useSelector(
+    //state => state.userPost.userFriends,
+  //);
 
   const [selectedFreinds, setSelectedFreinds] = useState([]);
 
 
-  const onSelectBg = item => {
+  /*const onSelectBg = item => {
     let data = selectedFreinds;
     data.push(item)
     setSelectedFreinds(data)
@@ -77,8 +76,8 @@ const MedicineReminder_6 = props => {
     });
     */
 
-  };
-
+  //};
+    
   const [selectedHr, setSelectedHr] = useState('1');
   const onDoseValueChangeHr = item => {
     setSelectedHr(item)
@@ -284,9 +283,9 @@ const MedicineReminder_6 = props => {
 
               {
                 (
-                  props.route.params.frequency == 'Once Daily' ||
-                  props.route.params.frequency == 'Twice Daily' ||
-                  props.route.params.frequency == '3 times a day'
+                  INTERVAL == 'Once Daily' ||
+                  INTERVAL == 'Twice Daily' ||
+                  INTERVAL == '3 times a day'
                 )
                 &&
                 <View>
@@ -375,8 +374,8 @@ const MedicineReminder_6 = props => {
 
               {
                 (
-                  props.route.params.frequency == 'Twice Daily' ||
-                  props.route.params.frequency == '3 times a day'
+                 INTERVAL == 'Twice Daily' ||
+                 INTERVAL == '3 times a day'
                 )
                 &&
                 <View>
@@ -463,7 +462,7 @@ const MedicineReminder_6 = props => {
 
 
               {
-                props.route.params.frequency == '3 times a day'
+                INTERVAL == '3 times a day'
                 &&
                 <View>
                   <View style={{
@@ -548,9 +547,9 @@ const MedicineReminder_6 = props => {
 
 
               {
-                props.route.params.frequency != 'Once Daily' &&
-                props.route.params.frequency != 'Twice Daily' &&
-                props.route.params.frequency != '3 times a day'
+                INTERVAL != 'Once Daily' &&
+                INTERVAL != 'Twice Daily' &&
+                INTERVAL != '3 times a day'
                 &&
                 <View>
                   <View style={{
@@ -596,10 +595,10 @@ const MedicineReminder_6 = props => {
         dispatch({
           type: types.SET_MEDICINE_REMINDER,
           userId: _user.userDetails._id,
-          medicineName: props.route.params.medicineName,
-          medicineCategory: props.route.params.medicineCategory,
-          medicineFor: props.route.params.medicineFor,
-          frequency: props.route.params.frequency,
+          medicineName: NAME,
+          medicineCategory: CATEGORY,
+          medicineFor: REASON,
+          frequency: INTERVAL,
           _time: _time,
           _time2: _time2,
           _time3: _time3

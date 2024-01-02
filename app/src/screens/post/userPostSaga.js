@@ -273,9 +273,7 @@ function* createUserPost(data) {
     formdata.append("location", JSON.stringify(data.creatPost.location));
     formdata.append("global", 'false');
     formdata.append("userId", userId);
-    //formdata.append("description", data.creatPost.postText);
     formdata.append("template", data.creatPost.selectedBackground.type);
-    //formdata.append("image", data.creatPost.selectedBackground.type);
     const res = yield call(queryApi, {
       endpoint: SAVE_USER_POST + '/' + userId + "?id=" + data._id,
       method: 'POST-NOAES',
@@ -290,8 +288,7 @@ function* createUserPost(data) {
     else {
       yield put(userPostActions.updateUserPost(result));
     }
-
-    //if() all ok 
+ 
     {
       yield put(postActions.setPostCompleted([]));
     }
@@ -308,9 +305,8 @@ function* getUserPost(data) {
       endpoint: GET_USER_POST + '/' + data.userId,
       method: 'GET'
     });
-    //let encryptData = aesEcryptionDecryption.decryptData(res);
-    //let result = JSON.parse(res)
-    //console.log("_____________________________", res)
+  
+    
     yield put(userPostActions.getUserPost(res));
 
   } catch (err) {

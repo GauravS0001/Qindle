@@ -41,16 +41,21 @@ exports.encryptDataGet = data => {
 
 
 exports.decryptData = data => {
+
+  try{
   let encryptedText = Buffer.from(data, 'hex');
   let decipher = crypto.createDecipheriv('aes-256-cbc', Buffer.from(key), iv);
   let decrypted = decipher.update(encryptedText);
   decrypted = Buffer.concat([decrypted, decipher.final()]);
 
   return decrypted.toString();
+  }catch(error){
+    console.log('Error during decryption:', error)
+    return '';
+  }
 };
 
 exports.decryptFileData = data => {
-  // data = { encryptedData: "b77d1ec6e8691b20a6efe369b387cc39f50adb4220d779e3f29b215ba552b81d" }
   let encryptedText = Buffer.from(data, 'hex');
   let decipher = crypto.createDecipheriv('aes-256-cbc', Buffer.from(key), iv);
   let decrypted = decipher.update(encryptedText);
@@ -58,14 +63,3 @@ exports.decryptFileData = data => {
   return decrypted.toString();
 };
 
-/*
-export function encryptData(data) {
-  let cipher = crypto.createCipheriv('aes-256-cbc', Buffer.from(key), iv);
-  // let encrypted = cipher.update(data);
-  let encrypted = cipher.update(JSON.stringify(data));
-  encrypted = Buffer.concat([encrypted, cipher.final()]);
-  // return encrypted.toString('hex');
-  return JSON.stringify({data: encrypted.toString('hex')});
-  // return encrypted.toString('hex');
-}
-*/

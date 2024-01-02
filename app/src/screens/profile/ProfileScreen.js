@@ -75,11 +75,15 @@ const ProfileScreen = props => {
       userId: _user.userDetails._id
     })
 
+    
+
   }, []);
 
   const friends_array = useSelector(
     state => state.userPost.userFriends,
   );
+
+ 
   const [friends, setFriends] = useState(0);
   const [community, setCommunity] = useState(0);
   const userPost = useSelector(

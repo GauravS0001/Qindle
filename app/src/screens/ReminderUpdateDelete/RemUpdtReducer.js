@@ -3,7 +3,6 @@ import {SET_CATEGORY_AND_REMINDER_UPDATE} from '../../../src/screens/startup/typ
 const initialState = {
     category: null,
     reminderId: null,
-    dte: null,
   };
 
   const RemUpdtReducer = (state = initialState, action) => {
@@ -13,7 +12,6 @@ const initialState = {
           ...state,
           category: action.payload.category,
           reminderId: action.payload.reminderId,
-          dte: action.payload.dte,
         };
       default:
         return state;

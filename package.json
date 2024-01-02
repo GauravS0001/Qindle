@@ -30,6 +30,7 @@
     "@tradle/react-native-http": "^2.0.0",
     "api-ecommerce": "^1.0.1",
     "assert": "^1.1.1",
+    "axios": "^1.6.3",
     "base-64": "^1.0.0",
     "browserify-zlib": "^0.1.4",
     "console-browserify": "^1.1.0",

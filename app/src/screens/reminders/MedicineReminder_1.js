@@ -20,21 +20,17 @@ import MedicineForm from '../../components/UI/MedicineForm';
 import BaseSafeAreaView from '../../components/UI/BaseSafeAreaView';
 import { useDispatch, useSelector } from 'react-redux';
 import * as types from '../startup/types';
-
 import Close from '../../../res/images/Close.svg';
+import { setMedicineForm } from './reminderActions';
+import { setMedicineCategory, setMedicineName } from './ACTION_MED';
+
 const MedicineReminder_1 = props => {
 
   const dispatch = useDispatch();
 
-  const _user = useSelector(state => state.user); //!!state.auth.token
+  const _user = useSelector(state => state.user); 
 
   useEffect(() => {
-
-    /*dispatch({
-      type: types.GET_USER_FRIENDS,
-      userId: _user.userDetails._id
-    })
-    */
 
     dispatch({
       type: types.GET_MEDICINE_FORM,
@@ -44,20 +40,18 @@ const MedicineReminder_1 = props => {
 
   }, []);
 
-  /*
-  const friendsList = useSelector(
-    state => state.userPost.userFriends,
-  );
-
-  */
 
   const friendsList = useSelector(
     state => state.reminder.medicineForm,
   );
 
+
   const [selectedFreinds, setSelectedFreinds] = useState([]);
 
+  const test =[{},{},{}]
+
   const onSelectBg = item => {
+    dispatch(setMedicineCategory(item))
     let data = selectedFreinds;
     data.push(item)
     setSelectedFreinds(data)
@@ -65,15 +59,13 @@ const MedicineReminder_1 = props => {
     props.navigation.navigate('MedicineReminder_2', {
       screen: 'MedicineReminder_2', //2
       params: {
-        //name: props.route.params.params.name,
-        //privacy: props.route.params.params.privacy,
-        //description: props.route.params.params.description,
-        //category: props.route.params.params.category,
         friends: _data
       }
     });
 
   };
+
+  
 
 
   return (
@@ -217,9 +209,9 @@ const MedicineReminder_1 = props => {
           borderTopLeftRadius: 15}}>
 
            <View style={{flexDirection: 'row', flexWrap: 'wrap', left: "3.5%", top: 5, height: 600}}>
-            {friendsList.map((item,index)=>(
-              <TouchableOpacity style={{height: 100, width: 130, backgroundColor: "white", marginTop: 30, marginLeft: 30, elevation: 10, borderRadius: 10, justifyContent: 'center', alignItems: 'center'}}
-              onPress={()=> onSelectBg(item._id)}>
+            {friendsList.map((item, index)=>(
+              <TouchableOpacity key={index} style={{height: 100, width: 130, backgroundColor: "white", marginTop: 30, marginLeft: 30, elevation: 10, borderRadius: 10, justifyContent: 'center', alignItems: 'center'}}
+              onPress={()=> onSelectBg(item.name)}>
                 <Image
               source={
                 item.name === "Pill"
