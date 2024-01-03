@@ -49,3 +49,15 @@ export const setReminderUsers = (response) => ({
   type: types.SET_REMINDERS_USERS,
   response,
 });
+
+
+export const setDeleteReminder = (response) => ({
+  type: types.SET_DELETE_REMINDERS,
+  response,
+});
+
+
+export const getSingleReminderDetails = (response) => ({
+  type: types.GET_SINGLE_REMINDER_DETAILS,
+  response,
+});

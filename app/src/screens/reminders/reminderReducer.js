@@ -13,7 +13,9 @@ const initialState = {
   reinderNotificationSet: false, //FOR notification
   reinderNotificationData: [],//FOR notification,
   reinderNotificationShowCount: 0,//FOR notification,
-  userReminder: []
+  userReminder: [],
+  reminderDelete: '',
+  singleReminderDetails: []
 };
 
 const reminderReducer = createReducer(initialState, {
@@ -135,6 +137,24 @@ const reminderReducer = createReducer(initialState, {
     };
     return newState;
   },
+
+  [types.SET_DELETE_REMINDERS ](state, action) {
+    let newState = {
+      ...state,
+      reminderDelete: action.response,
+    };
+    return newState;
+  },
+
+  [types.GET_SINGLE_REMINDER_DETAILS ](state, action) {
+    let newState = {
+      ...state,
+      singleReminderDetails: action.response,
+    };
+    return newState;
+  },
+
+
 
 
 });

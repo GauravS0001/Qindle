@@ -33,7 +33,7 @@ const Profile_Rems = props =>{
 
 
   function updt (category, reminderId){
-    props.navigation.navigate("ReminderUpdateDelete")
+    props.navigation.navigate("ReminderUpdate")
     dispatch(setCategoryAndReminderUpdate(category, reminderId));
   }
   
@@ -83,7 +83,7 @@ const Profile_Rems = props =>{
 
               <Text style={{position: "absolute", fontSize: 18, fontWeight: "bold", left: 83, top: 18}}>{item.medicine_name}</Text>
               <Text style={{fontSize: 15, position: "absolute", top: 40, left: 83}}>{item.type}</Text>
-              <Text style={{position: "absolute", fontWeight: "bold", color: "rgb(157, 157, 157)", top: 60, left: 83, fontSize: 13}}>{item.medicine_times[0]}</Text>
+              <Text style={{position: "absolute", fontWeight: "bold", color: "rgb(157, 157, 157)", top: 59, left: 83, fontSize: 13}}>{item.medicine_frequency}</Text>
   </TouchableOpacity>
 )}
 

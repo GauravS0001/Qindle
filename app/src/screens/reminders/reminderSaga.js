@@ -20,6 +20,8 @@ export function* reminderSaga() {
   yield takeEvery(types.SET_MEDICINE_REMINDER, setMedicineReminder);
   yield takeEvery(types.SET_REMINDER, setReminder);
   yield takeEvery(types.SET_USER_REMINDERS, fetchRemindersForUserId)
+  yield takeEvery(types.DELETE_REMINDERS, deleteReminder)
+  yield takeEvery(types.GET_SINGLE_REMINDER_DETAILS_FUNCTION, fetchReminderById)
 
 }
 
@@ -199,6 +201,50 @@ function* fetchRemindersForUserId(action) {
   } catch (err) {
     
     console.error('Error fetching user data:', err);
+  }
+}
+
+
+function* deleteReminder(action) {
+
+  const reminderId  = action.payload; 
+ 
+  try {
+     
+    const res = yield call(queryApi, {
+      endpoint: `http://192.168.1.6/api/deletereminders/${reminderId}`,
+      method: 'DELETE',    
+    });
+
+  
+    let decryptData = aesEcryptionDecryption.decryptData(res);  
+    let result = JSON.parse(decryptData);
+
+    yield put(reminderActions.setDeleteReminder(result));
+
+
+  } catch (err) {
+    
+    console.error('Error deleting reminder:', err);
+  }
+}
+
+function* fetchReminderById(action) {
+  const reminderId = action.payload;
+
+  try {
+    const res = yield call(queryApi, {
+      endpoint: `http://192.168.1.6/api/getreminderdetails/${reminderId}`,
+      method: 'GET', // Assuming you want to use GET method for fetching a specific reminder
+    });
+
+    let encryptData = aesEcryptionDecryption.decryptData(res);
+    let result = JSON.parse(encryptData);
+
+    yield put(reminderActions.getSingleReminderDetails(result));
+
+  } catch (err) {
+    console.error('Error fetching reminder details:', err);
   }
 }
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TouchableOpacity, Text, Image } from "react-native";
+import { View, TouchableOpacity, Text, Image,  ToastAndroid} from "react-native";
 import { useRoute } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
@@ -13,9 +13,12 @@ const ReminderUpdateDelete = props => {
     const category = useSelector(state => state.RemUpdtReducer.category)
     const id = useSelector(state => state.RemUpdtReducer.reminderId)
 
+    const delres = useSelector(state => state.reminder.reminderDelete)
+
+
 
     useEffect(() => {
-      
+     
     }, []); 
 
     
@@ -36,10 +39,24 @@ const ReminderUpdateDelete = props => {
        </View>
 
        <View style={{height: 100, width: "100%", backgroundColor: "transparent", flexWrap: "wrap", flexDirection: "row", justifyContent: "center", alignItems: "center"}}>
-        <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "white", marginTop: 40, borderRadius: 10, borderWidth: 2, borderColor: "#055F9B"}}>
+        <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "white", marginTop: 40, borderRadius: 10, borderWidth: 2, borderColor: "#055F9B"}}
+        onPress={()=>{
+          dispatch({
+            type: types.DELETE_REMINDERS,
+            payload: id
+          })
+
+          ToastAndroid.show("Reminder Deleted", ToastAndroid.LONG);
+          props.navigation.navigate("ProfileScreen")
+        }}
+        
+        
+        >
             <Image source={require('../../../res/images/delete.png')} style={{height: 25, width: 25, left: 28, top: 10}}/>
              <Text style={{position: "absolute", color: "black", fontWeight: "bold", fontSize: 18, left: 65, top: 10}}>Delete</Text>
         </TouchableOpacity>
+
+        
         <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "#055F9B", marginLeft: 20, borderRadius: 10}}
         onPress={()=>props.navigation.navigate("ReminderUpdate")}>
         <Image source={require('../../../res/images/Update.png')} style={{height: 25, width: 25, left: 28, top: 10}}/>
@@ -47,9 +64,7 @@ const ReminderUpdateDelete = props => {
         </TouchableOpacity>
        </View>
 
-        <Text>{category}</Text>
-        <Text>{id}</Text>
-
+       
          
 
          
