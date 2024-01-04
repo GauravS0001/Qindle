@@ -111,7 +111,8 @@ function* setReminder(data) {
       "name": data.name,
       "type": data.reminderType,
       "date": Math.floor(_unixTime / 1000),
-      "users_id": data.userId
+      "users_id": data.userId,
+      "time": data.time
     }
     const res = yield call(queryApi, {
       endpoint: SAVE_MEDICINE_REMINDER,
@@ -164,7 +165,7 @@ function* reminderCategory(data) {
   try {
 
     const res = yield call(queryApi, {
-      endpoint: 'http://192.168.1.6/api/getreminderoptions',
+      endpoint: 'http://192.168.1.4/api/getreminderoptions',
       method: 'GET',
     });
     let encryptData = aesEcryptionDecryption.decryptData(res);
@@ -189,7 +190,7 @@ function* fetchRemindersForUserId(action) {
   try {
      
     const res = yield call(queryApi, {
-      endpoint: `http://192.168.1.6/api/getRemindersByUserId/${userId}`,
+      endpoint: `http://192.168.1.4/api/getRemindersByUserId/${userId}`,
       method: 'POST',    
     });
 
@@ -212,7 +213,7 @@ function* deleteReminder(action) {
   try {
      
     const res = yield call(queryApi, {
-      endpoint: `http://192.168.1.6/api/deletereminders/${reminderId}`,
+      endpoint: `http://192.168.1.4/api/deletereminders/${reminderId}`,
       method: 'DELETE',    
     });
 
@@ -234,7 +235,7 @@ function* fetchReminderById(action) {
 
   try {
     const res = yield call(queryApi, {
-      endpoint: `http://192.168.1.6/api/getreminderdetails/${reminderId}`,
+      endpoint: `http://192.168.1.4/api/getreminderdetails/${reminderId}`,
       method: 'GET', // Assuming you want to use GET method for fetching a specific reminder
     });
 

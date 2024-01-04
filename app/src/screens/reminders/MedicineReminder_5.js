@@ -100,7 +100,7 @@ const MedicineReminder_5 = props => {
     fontWeight: 'bold', 
     fontSize: 18.7, 
     top: 18, 
-    left: 55}}>Select Time of Day   {TI}</Text>
+    left: 55}}>Select Time of Day</Text>
 
     <TouchableOpacity style={{
     height: 30, 

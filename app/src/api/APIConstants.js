@@ -4,10 +4,10 @@ export const SECRETE_KEY = '273D70BB68A2DF22B2C5498CB712995C';
 export const SECRETE_IV = 'E4806F56EE621821';
 //export const LOCAL_HOST = '68.178.161.118';  //
 //export const LOCAL_HOST = 'darjeelingtour.in';  //
-export const LOCAL_HOST = '192.168.1.6'; 
+export const LOCAL_HOST = '3f78fab7d259cc9417fca7e40f049bfb.serveo.net'; 
 //export const LOCAL_TEST_HOST = '192.168.1.4'
 
-export const LOCAL_TEST_HOST = '192.168.1.6'; 
+export const LOCAL_TEST_HOST = '3f78fab7d259cc9417fca7e40f049bfb.serveo.net'; 
 
 
 //export const LOCAL_HOST = '192.168.56.1';  //

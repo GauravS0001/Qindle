@@ -94,7 +94,7 @@ function ReminderUpdate(props) {
             <Text style={{
               color: "black", position: 'absolute', fontSize: 18, fontWeight: 'bold',
               top: 11, left: 45, width: 500
-            }}>Update {category} Reminder</Text>
+            }}>{category} Reminder</Text>
           </TouchableOpacity>
         </View>
 
@@ -103,97 +103,26 @@ function ReminderUpdate(props) {
             position: 'absolute',
             top: 31,
             left: 22,
-            fontWeight: 'bold',
-            fontSize: 17
-          }}>Name*</Text>
+            fontSize: 18
+          }}>Bill Name*</Text>
 
-          <View style={{
-            height: 55,
-            width: "90%",
-            backgroundColor: "rgb(229, 229, 229);",
-            left: 20,
-            top: 60,
-            borderRadius: 10
-          }}>
+          <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 58}}>{ReminderDetails[0].name}</Text>
 
-            <TextInput
-              onChangeText={textChangeHandler}
-              maxLength={20}
-              placeholder='Type bill name'
-              style={{
-                position: 'absolute',
-                height: 45,
-                width: "94.5%",
-                backgroundColor: "transparent",
-                top: 5,
-                left: 10,
-                fontSize: 16.5,
-                fontWeight: 'bold'
-              }}
-
-            />
-          </View>
+          <View style={{height: 2.5, width: "91.5%", left: 15, backgroundColor: "rgb(241, 241, 241)", position: "absolute", top: 93}}></View>
 
           <Text style={{
             position: 'absolute',
-            top: 155,
+            top: 105,
             left: 22,
-            fontWeight: 'bold',
-            fontSize: 17
-          }}>Select Date*</Text>
+            fontSize: 18
+          }}>Bill Pyment Date*</Text>
 
-          <View style={{
-            height: 50,
-            width: "90%",
-            backgroundColor: "rgb(229, 229, 229);",
-            left: 20,
-            top: 130,
-            borderRadius: 10
-          }}>
-
-            <TouchableOpacity
-              style={{ height: 45, width: "80%", backgroundColor: "transparent", position: 'absolute', top: 2.5, left: 5 }}
-              onPress={() => textChangeHandler2()}>
-
-              <Text
-                style={{
-                  padding: 10,
-                  borderRadius: 10,
-                  fontSize: 17,
-                  fontStyle: 'normal',
-                  fontWeight: 'bold',
-                  letterSpacing: 0,
-                  color: '#8C8C8C',
-                  left: 5,
-                  top: 0
-                }}
-              >
-                {Day.toString().slice(0, 15)}
-              </Text>
-            </TouchableOpacity>
-
-            <Image source={require('../../../res/images/Calendar.png')} style={{
-              height: 28,
-              width: 28,
-              left: "88.5%",
-              top: 10
-            }} />
-          </View>
-
-         
-
+           <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 130}}>{ReminderDetails[0].date.slice(0, 10)}</Text>
+  
         </View>
 
-        {showDate && (
-          <DateTimePicker
-            testID="dateTimePicker"
-            value={Day}
-            mode='date'
-            is24Hour={false}
-            display="default"
-            onChange={onChangeDate}
-          />
-        )}
+      
+        
 
         <View style={{
           bottom: 0,
@@ -204,28 +133,27 @@ function ReminderUpdate(props) {
           borderTopWidth: 1.5,
         }}>
            
-        <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "white", marginTop: 10, borderRadius: 10, borderWidth: 2, borderColor: "#055F9B", left: "5.5%"}}
-        onPress={()=>{
-          dispatch({
-            type: types.DELETE_REMINDERS,
-            payload: id
-          })
+           <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "white", marginTop: 10, borderRadius: 10, borderWidth: 2, borderColor: "#055F9B", left: "53%"}}
+    onPress={()=>{
+      dispatch({
+        type: types.DELETE_REMINDERS,
+        payload: id
+      })
 
-          ToastAndroid.show("Reminder Deleted", ToastAndroid.LONG);
-          props.navigation.navigate("ProfileScreen")
-        }}
-        >
+      ToastAndroid.show("Reminder Deleted", ToastAndroid.LONG);
+      props.navigation.navigate("ProfileScreen")
+    }}
+    >
 
-           <Image source={require('../../../res/images/delete.png')} style={{height: 25, width: 25, left: 28, top: 10}}/>
-             <Text style={{position: "absolute", color: "black", fontWeight: "bold", fontSize: 18, left: 65, top: 10}}>Delete</Text>
+       <Image source={require('../../../res/images/delete.png')} style={{height: 25, width: 25, left: 35, top: 10}}/>
+         <Text style={{position: "absolute", color: "black", fontWeight: "bold", fontSize: 18, left: 70, top: 10}}>Delete</Text>
+    </TouchableOpacity>
+
+    <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "#055F9B", marginLeft: 0, borderRadius: 10, position: "absolute", left: 20, top: 10}}
+        onPress={()=>props.navigation.navigate("ProfileScreen")}>
+        <Image source={require('../../../res/images/cancel.png')} style={{height: 35, width: 35, left: 26, top: 7}}/>
+             <Text style={{position: "absolute", color: "white", fontWeight: "bold", fontSize: 18, left: 65, top: 11}}>Cancel</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "#055F9B", marginLeft: 20, borderRadius: 10, position: "absolute", left: "47.5%", top: 10}}
-        onPress={()=>props.navigation.navigate("ReminderUpdate")}>
-        <Image source={require('../../../res/images/Update.png')} style={{height: 25, width: 25, left: 28, top: 10}}/>
-             <Text style={{position: "absolute", color: "white", fontWeight: "bold", fontSize: 18, left: 65, top: 10}}>Update</Text>
-        </TouchableOpacity>
-       
         </View>
       </View>
     )
@@ -243,104 +171,34 @@ function ReminderUpdate(props) {
             <Text style={{
               color: "black", position: 'absolute', fontSize: 18, fontWeight: 'bold',
               top: 11, left: 45, width: 500
-            }}>Update {category} Reminder</Text>
+            }}>{category} Reminder</Text>
           </TouchableOpacity>
         </View>
 
         <View style={{ height: "83.4%", width: "100%", backgroundColor: "white" }}>
-          <Text style={{
+         
+        <Text style={{
             position: 'absolute',
             top: 31,
             left: 22,
-            fontWeight: 'bold',
-            fontSize: 17
+            fontSize: 18
           }}>Name*</Text>
 
-          <View style={{
-            height: 55,
-            width: "90%",
-            backgroundColor: "rgb(229, 229, 229);",
-            left: 20,
-            top: 60,
-            borderRadius: 10
-          }}>
+          <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 58}}>{ReminderDetails[0].name}</Text>
 
-            <TextInput
-              onChangeText={textChangeHandler}
-              maxLength={20}
-              placeholder='Type name'
-              style={{
-                position: 'absolute',
-                height: 45,
-                width: "94.5%",
-                backgroundColor: "transparent",
-                top: 5,
-                left: 10,
-                fontSize: 16.5,
-                fontWeight: 'bold'
-              }}
-
-            />
-          </View>
+          <View style={{height: 2.5, width: "91.5%", left: 15, backgroundColor: "rgb(241, 241, 241)", position: "absolute", top: 93}}></View>
 
           <Text style={{
             position: 'absolute',
-            top: 155,
+            top: 105,
             left: 22,
-            fontWeight: 'bold',
-            fontSize: 17
-          }}>Select Date*</Text>
+            fontSize: 18
+          }}>Birthday Date*</Text>
 
-          <View style={{
-            height: 50,
-            width: "90%",
-            backgroundColor: "rgb(229, 229, 229);",
-            left: 20,
-            top: 130,
-            borderRadius: 10
-          }}>
-
-            <TouchableOpacity
-              style={{ height: 45, width: "80%", backgroundColor: "transparent", position: 'absolute', top: 2.5, left: 5 }}
-              onPress={() => textChangeHandler2()}>
-
-              <Text
-                style={{
-                  padding: 10,
-                  borderRadius: 10,
-                  fontSize: 17,
-                  fontStyle: 'normal',
-                  fontWeight: 'bold',
-                  letterSpacing: 0,
-                  color: '#8C8C8C',
-                  left: 5,
-                  top: 0
-                }}
-              >
-                {Day.toString().slice(0, 15)}
-              </Text>
-            </TouchableOpacity>
-
-            <Image source={require('../../../res/images/Calendar.png')} style={{
-              height: 28,
-              width: 28,
-              left: "88.5%",
-              top: 10
-            }} />
-          </View>
-
+           <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 130}}>{ReminderDetails[0].date.slice(0, 10)}</Text>
+           
+         
         </View>
-
-        {showDate && (
-          <DateTimePicker
-            testID="dateTimePicker"
-            value={Day}
-            mode='date'
-            is24Hour={false}
-            display="default"
-            onChange={onChangeDate}
-          />
-        )}
 
         <View style={{
           bottom: 0,
@@ -351,26 +209,26 @@ function ReminderUpdate(props) {
           borderTopWidth: 1.5,
         }}>
 
-        <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "white", marginTop: 10, borderRadius: 10, borderWidth: 2, borderColor: "#055F9B", left: "5.5%"}}
-        onPress={()=>{
-          dispatch({
-            type: types.DELETE_REMINDERS,
-            payload: id
-          })
+<TouchableOpacity style={{height: 50, width: 160, backgroundColor: "white", marginTop: 10, borderRadius: 10, borderWidth: 2, borderColor: "#055F9B", left: "53%"}}
+    onPress={()=>{
+      dispatch({
+        type: types.DELETE_REMINDERS,
+        payload: id
+      })
 
-          ToastAndroid.show("Reminder Deleted", ToastAndroid.LONG);
-          props.navigation.navigate("ProfileScreen")
-        }}
-        >
+      ToastAndroid.show("Reminder Deleted", ToastAndroid.LONG);
+      props.navigation.navigate("ProfileScreen")
+    }}
+    >
 
-           <Image source={require('../../../res/images/delete.png')} style={{height: 25, width: 25, left: 28, top: 10}}/>
-             <Text style={{position: "absolute", color: "black", fontWeight: "bold", fontSize: 18, left: 65, top: 10}}>Delete</Text>
-        </TouchableOpacity>
+       <Image source={require('../../../res/images/delete.png')} style={{height: 25, width: 25, left: 35, top: 10}}/>
+         <Text style={{position: "absolute", color: "black", fontWeight: "bold", fontSize: 18, left: 70, top: 10}}>Delete</Text>
+    </TouchableOpacity>
 
-        <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "#055F9B", marginLeft: 20, borderRadius: 10, position: "absolute", left: "47.5%", top: 10}}
-        onPress={()=>props.navigation.navigate("ReminderUpdate")}>
-        <Image source={require('../../../res/images/Update.png')} style={{height: 25, width: 25, left: 28, top: 10}}/>
-             <Text style={{position: "absolute", color: "white", fontWeight: "bold", fontSize: 18, left: 65, top: 10}}>Update</Text>
+    <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "#055F9B", marginLeft: 0, borderRadius: 10, position: "absolute", left: 20, top: 10}}
+        onPress={()=>props.navigation.navigate("ProfileScreen")}>
+        <Image source={require('../../../res/images/cancel.png')} style={{height: 35, width: 35, left: 26, top: 7}}/>
+             <Text style={{position: "absolute", color: "white", fontWeight: "bold", fontSize: 18, left: 65, top: 11}}>Cancel</Text>
         </TouchableOpacity>
         </View>
       </View>
@@ -389,111 +247,59 @@ function ReminderUpdate(props) {
             <Text style={{
               color: "black", position: 'absolute', fontSize: 18, fontWeight: 'bold',
               top: 11, left: 45, width: 500
-            }}>Update {category} Reminder</Text>
+            }}>{category} Reminder</Text>
           </TouchableOpacity>
         </View>
 
         <View style={{ height: "83.4%", width: "100%", backgroundColor: "white" }}>
-          <Text style={{
+          
+        <Text style={{
             position: 'absolute',
             top: 31,
             left: 22,
-            fontWeight: 'bold',
-            fontSize: 17
+            fontSize: 18
           }}>Name*</Text>
 
-          <View style={{
-            height: 55,
-            width: "90%",
-            backgroundColor: "rgb(229, 229, 229);",
-            left: 20,
-            top: 60,
-            borderRadius: 10
-          }}>
+          <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 58}}>{ReminderDetails[0].name}</Text>
 
-            <TextInput
-              onChangeText={textChangeHandler}
-              maxLength={20}
-              placeholder='Type bill name'
-              style={{
-                position: 'absolute',
-                height: 45,
-                width: "94.5%",
-                backgroundColor: "transparent",
-                top: 5,
-                left: 10,
-                fontSize: 16.5,
-                fontWeight: 'bold'
-              }}
-
-            />
-          </View>
+          <View style={{height: 2.5, width: "91.5%", left: 15, backgroundColor: "rgb(241, 241, 241)", position: "absolute", top: 93}}></View>
 
           <Text style={{
             position: 'absolute',
-            top: 155,
+            top: 105,
             left: 22,
-            fontWeight: 'bold',
-            fontSize: 17
-          }}>Select Date*</Text>
+            fontSize: 18
+          }}>Aniversary Date*</Text>
 
-          <View style={{
-            height: 50,
-            width: "90%",
-            backgroundColor: "rgb(229, 229, 229);",
-            left: 20,
-            top: 130,
-            borderRadius: 10
-          }}>
-
-            <TouchableOpacity
-              style={{ height: 45, width: "80%", backgroundColor: "transparent", position: 'absolute', top: 2.5, left: 5 }}
-              onPress={() => textChangeHandler2()}>
-
-              <Text
-                style={{padding: 10,borderRadius: 10,fontSize: 17, fontStyle: 'normal', fontWeight: 'bold', letterSpacing: 0, color: '#8C8C8C', left: 5, top: 0}}>
-                {Day.toString().slice(0, 15)}
-              </Text>
-            </TouchableOpacity>
-
-            <Image source={require('../../../res/images/Calendar.png')} style={{ height: 28, width: 28, left: "88.5%", top: 10 }} />
-          </View>
+           <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 130}}>{ReminderDetails[0].date.slice(0, 10)}</Text>
+           
 
         </View>
 
-        {showDate && (
-          <DateTimePicker
-            testID="dateTimePicker"
-            value={Day}
-            mode='date'
-            is24Hour={false}
-            display="default"
-            onChange={onChangeDate}
-          />
-        )}
+        
 
         <View style={{ bottom: 0, height: 75, width: "100%", backgroundColor: "white", borderTopColor: "rgb(229, 229, 229);", borderTopWidth: 1.5 }}>
 
-        <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "white", marginTop: 10, borderRadius: 10, borderWidth: 2, borderColor: "#055F9B", left: "5.5%"}}
-        onPress={()=>{
-          dispatch({
-            type: types.DELETE_REMINDERS,
-            payload: id
-          })
+        <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "white", marginTop: 10, borderRadius: 10, borderWidth: 2, borderColor: "#055F9B", left: "53%"}}
+    onPress={()=>{
+      dispatch({
+        type: types.DELETE_REMINDERS,
+        payload: id
+      })
 
-          ToastAndroid.show("Reminder Deleted", ToastAndroid.LONG);
-          props.navigation.navigate("ProfileScreen")
-        }}
-        >
+      ToastAndroid.show("Reminder Deleted", ToastAndroid.LONG);
+      props.navigation.navigate("ProfileScreen")
+    }}
+    >
 
-           <Image source={require('../../../res/images/delete.png')} style={{height: 25, width: 25, left: 28, top: 10}}/>
-             <Text style={{position: "absolute", color: "black", fontWeight: "bold", fontSize: 18, left: 65, top: 10}}>Delete</Text>
-        </TouchableOpacity>
+       <Image source={require('../../../res/images/delete.png')} style={{height: 25, width: 25, left: 35, top: 10}}/>
+         <Text style={{position: "absolute", color: "black", fontWeight: "bold", fontSize: 18, left: 70, top: 10}}>Delete</Text>
+    </TouchableOpacity>
 
-        <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "#055F9B", marginLeft: 20, borderRadius: 10, position: "absolute", left: "47.5%", top: 10}}
-        onPress={()=>props.navigation.navigate("ReminderUpdate")}>
-        <Image source={require('../../../res/images/Update.png')} style={{height: 25, width: 25, left: 28, top: 10}}/>
-             <Text style={{position: "absolute", color: "white", fontWeight: "bold", fontSize: 18, left: 65, top: 10}}>Update</Text>
+    <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "#055F9B", marginLeft: 0, borderRadius: 10, position: "absolute", left: 20, top: 10}}
+        onPress={()=>props.navigation.navigate("ProfileScreen")}>
+        <Image source={require('../../../res/images/cancel.png')} style={{height: 35, width: 35, left: 26, top: 7}}/>
+             <Text style={{position: "absolute", color: "white", fontWeight: "bold", fontSize: 18, left: 65, top: 11}}>Cancel</Text>
         </TouchableOpacity>
         </View>
       </View>
@@ -512,156 +318,80 @@ function ReminderUpdate(props) {
           <Text style={{
             color: "black", position: 'absolute', fontSize: 18, fontWeight: 'bold',
             top: 11, left: 45, width: 500
-          }}>Update {category} Reminder</Text>
+          }}>Health Checkup Reminder</Text>
         </TouchableOpacity>
       </View>
 
       <View style={{ height: "83.4%", width: "100%", backgroundColor: "white" }}>
-          <Text style={{
+      <Text style={{
             position: 'absolute',
             top: 31,
             left: 22,
-            fontWeight: 'bold',
-            fontSize: 17
+            fontSize: 18
           }}>Name*</Text>
 
-          <View style={{
-            height: 55,
-            width: "90%",
-            backgroundColor: "rgb(229, 229, 229);",
-            left: 20,
-            top: 60,
-            borderRadius: 10
-          }}>
+          <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 58}}>{ReminderDetails[0].name}</Text>
 
-            <TextInput
-              onChangeText={textChangeHandler}
-              maxLength={20}
-              placeholder='Type bill name'
-              style={{
-                position: 'absolute',
-                height: 45,
-                width: "94.5%",
-                backgroundColor: "transparent",
-                top: 5,
-                left: 10,
-                fontSize: 16.5,
-                fontWeight: 'bold'
-              }}
-
-            />
-          </View>
+          <View style={{height: 2.5, width: "91.5%", left: 15, backgroundColor: "rgb(241, 241, 241)", position: "absolute", top: 93}}></View>
 
           <Text style={{
             position: 'absolute',
-            top: 155,
+            top: 105,
             left: 22,
-            fontWeight: 'bold',
-            fontSize: 17
-          }}>Select Date*</Text>
+            fontSize: 18
+          }}>Checkup Date*</Text>
 
-          <View style={{
-            height: 50,
-            width: "90%",
-            backgroundColor: "rgb(229, 229, 229);",
-            left: 20,
-            top: 130,
-            borderRadius: 10
-          }}>
+           <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 130}}>{ReminderDetails[0].date.slice(0, 10)}</Text>
+           
 
-            <TouchableOpacity
-              style={{ height: 45, width: "80%", backgroundColor: "transparent", position: 'absolute', top: 2.5, left: 5 }}
-              onPress={() => textChangeHandler2()}>
+           <View style={{height: 2, width: "91.5%", left: 15, backgroundColor: "rgb(241, 241, 241)", position: "absolute", top: 170}}></View>
 
-              <Text
-                style={{padding: 10,borderRadius: 10,fontSize: 17, fontStyle: 'normal', fontWeight: 'bold', letterSpacing: 0, color: '#8C8C8C', left: 5, top: 0}}>
-                {Day.toString().slice(0, 15)}
-              </Text>
-            </TouchableOpacity>
-
-            <Image source={require('../../../res/images/Calendar.png')} style={{ height: 28, width: 28, left: "88.5%", top: 10 }} />
-          </View>
-
-          <Text style={{
+          
+           <Text style={{
             position: 'absolute',
-            top: 275,
+            top: 185,
             left: 22,
-            fontWeight: 'bold',
-            fontSize: 17
+            fontSize: 18
           }}>Time*</Text>
 
-          <View style={{
-            height: 55,
-            width: "90%",
-            backgroundColor: "rgb(229, 229, 229);",
-            left: 20,
-            top: 200,
-            borderRadius: 10
-          }}>
+           <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 210}}>{ReminderDetails[0].time.slice(0,5)}</Text>
+         
+         
+             
 
-              <TouchableOpacity
-              style={{ height: 45, width: "80%", backgroundColor: "transparent", position: 'absolute', top: 2.5, left: 5 }}
-              onPress={() => textChangeHandler3()}>
+         
 
-              <Text
-                style={{padding: 10,borderRadius: 10,fontSize: 17, fontStyle: 'normal', fontWeight: 'bold', letterSpacing: 0, color: '#8C8C8C', left: 5, top: 0}}>
-                {TimeStr.toString().slice(0, 15)}
-              </Text>
-            </TouchableOpacity>
-       
 
-          </View>
-
-          {showDate && (
-          <DateTimePicker
-            testID="dateTimePicker"
-            value={Day}
-            mode='date'
-            is24Hour={false}
-            display="default"
-            onChange={onChangeDate}
-          />
-        )}
-
-         {showTime && (
-          <DateTimePicker
-            testID="dateTimePicker2"
-            value={Time}
-            mode='time'
-            is24Hour={false}
-            display="default"
-            onChange={onChangeTime}
-          />
-        )}
           </View>
 
 
          <View style={{ bottom: 0, height: 75, width: "100%", backgroundColor: "white", borderTopColor: "rgb(229, 229, 229);", borderTopWidth: 1.5}}>
 
-         <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "white", marginTop: 10, borderRadius: 10, borderWidth: 2, borderColor: "#055F9B", left: "5.5%"}}
-        onPress={()=>{
-          dispatch({
-            type: types.DELETE_REMINDERS,
-            payload: id
-          })
+         <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "white", marginTop: 10, borderRadius: 10, borderWidth: 2, borderColor: "#055F9B", left: "53%"}}
+    onPress={()=>{
+      dispatch({
+        type: types.DELETE_REMINDERS,
+        payload: id
+      })
 
-          ToastAndroid.show("Reminder Deleted", ToastAndroid.LONG);
-          props.navigation.navigate("ProfileScreen")
-        }}
-        >
+      ToastAndroid.show("Reminder Deleted", ToastAndroid.LONG);
+      props.navigation.navigate("ProfileScreen")
+    }}
+    >
 
-           <Image source={require('../../../res/images/delete.png')} style={{height: 25, width: 25, left: 28, top: 10}}/>
-             <Text style={{position: "absolute", color: "black", fontWeight: "bold", fontSize: 18, left: 65, top: 10}}>Delete</Text>
+       <Image source={require('../../../res/images/delete.png')} style={{height: 25, width: 25, left: 35, top: 10}}/>
+         <Text style={{position: "absolute", color: "black", fontWeight: "bold", fontSize: 18, left: 70, top: 10}}>Delete</Text>
+    </TouchableOpacity>
+
+    <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "#055F9B", marginLeft: 0, borderRadius: 10, position: "absolute", left: 20, top: 10}}
+        onPress={()=>props.navigation.navigate("ProfileScreen")}>
+        <Image source={require('../../../res/images/cancel.png')} style={{height: 35, width: 35, left: 26, top: 7}}/>
+             <Text style={{position: "absolute", color: "white", fontWeight: "bold", fontSize: 18, left: 65, top: 11}}>Cancel</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "#055F9B", marginLeft: 20, borderRadius: 10, position: "absolute", left: "47.5%", top: 10}}
-        onPress={()=>props.navigation.navigate("ReminderUpdate")}>
-        <Image source={require('../../../res/images/Update.png')} style={{height: 25, width: 25, left: 28, top: 10}}/>
-             <Text style={{position: "absolute", color: "white", fontWeight: "bold", fontSize: 18, left: 65, top: 10}}>Update</Text>
-        </TouchableOpacity>
         </View>
 
-      
+       
 
       </View>
     )
@@ -747,20 +477,11 @@ if(category === 'Medicine'){
 
     </View>
 
-    {showDate && (
-      <DateTimePicker
-        testID="dateTimePicker"
-        value={Day}
-        mode='date'
-        is24Hour={false}
-        display="default"
-        onChange={onChangeDate}
-      />
-    )}
+   
 
     <View style={{ bottom: 0, height: 75, width: "100%", backgroundColor: "white", borderTopColor: "rgb(229, 229, 229);", borderTopWidth: 1.5 }}>
 
-    <TouchableOpacity style={{height: 50, width: "89%", backgroundColor: "white", marginTop: 10, borderRadius: 10, borderWidth: 2, borderColor: "#055F9B", left: "5.5%"}}
+    <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "white", marginTop: 10, borderRadius: 10, borderWidth: 2, borderColor: "#055F9B", left: "53%"}}
     onPress={()=>{
       dispatch({
         type: types.DELETE_REMINDERS,
@@ -772,9 +493,15 @@ if(category === 'Medicine'){
     }}
     >
 
-       <Image source={require('../../../res/images/delete.png')} style={{height: 25, width: 25, left: 90, top: 10}}/>
-         <Text style={{position: "absolute", color: "black", fontWeight: "bold", fontSize: 18, left: 127, top: 10}}>Delete Reminder</Text>
+       <Image source={require('../../../res/images/delete.png')} style={{height: 25, width: 25, left: 35, top: 10}}/>
+         <Text style={{position: "absolute", color: "black", fontWeight: "bold", fontSize: 18, left: 70, top: 10}}>Delete</Text>
     </TouchableOpacity>
+
+    <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "#055F9B", marginLeft: 0, borderRadius: 10, position: "absolute", left: 20, top: 10}}
+        onPress={()=>props.navigation.navigate("ReminderUpdate")}>
+        <Image source={require('../../../res/images/Update.png')} style={{height: 25, width: 25, left: 28, top: 10}}/>
+             <Text style={{position: "absolute", color: "white", fontWeight: "bold", fontSize: 18, left: 65, top: 10}}>Cancel</Text>
+        </TouchableOpacity>
 
     </View>
   </View>

@@ -227,7 +227,7 @@ const ChannelScreen = props => {
               {eventActive &&
                 <CityFilter />
               }
-              <FlatList
+              {/*<FlatList
                 data={_data.data}
                 numColumns={2}
                 contentContainerStyle={{ paddingBottom: 50 }}
@@ -241,7 +241,7 @@ const ChannelScreen = props => {
                     />
                   </>
                 )}
-              />
+                />*/}
 
               <View style={styles.imgContainer}>
                 <TouchableOpacity
@@ -259,7 +259,7 @@ const ChannelScreen = props => {
                     marginBottom: 10,
                     fontWeight: 'bold',
                     fontSize: 16,
-                    marginTop: 0
+                    marginTop: 10
                   }}>Event - Book Now !</Text>
                   <SliderBox onCurrentImagePressed={() => {
                     props.navigation.navigate('ChannelBookScreen', {

@@ -287,7 +287,7 @@ const HealthCheckReminder_1 = props => {
                   type: types.SET_REMINDER,
                   userId: _user.userDetails._id,
                   day: birthDay,
-                  time: birthTime,
+                  time: birthTimeStr,
                   name: postText,
                   _da: birthTimeStr,
                   _day: birthDayStr,
@@ -336,6 +336,7 @@ const HealthCheckReminder_1 = props => {
             is24Hour={false}
             display="default"
             onChange={onChangeTime}
+            timeZoneName={'Asia/Kolkata'}
           />
         )}
 

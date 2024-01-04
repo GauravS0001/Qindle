@@ -149,7 +149,7 @@ const ProfileScreen = props => {
               <Image source={require('../../../res/images/oldman.jpeg')} style={{height: 130.5, width: 130.5, borderRadius: 140}}/>
             </View>
             <View style={{height: 40, width:"100%", backgroundColor: "transparent", top: 30, justifyContent: 'center', alignItems: 'center'}}>
-              <Text style={{color: "white", fontSize: 17.5, fontWeight: 'bold'}}> {username}Solanki</Text>
+              <Text style={{color: "white", fontSize: 17.5, fontWeight: 'bold'}}> {username}</Text>
                <Text style={{top: 2, fontWeight: 'bold', fontSize: 14.8, color: "rgb(208, 208, 210)"}}>  Age : 22 years</Text>
             </View>
 

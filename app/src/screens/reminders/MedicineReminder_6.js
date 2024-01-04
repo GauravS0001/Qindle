@@ -275,7 +275,7 @@ const MedicineReminder_6 = props => {
       borderTopRightRadius: 15, 
       borderTopLeftRadius: 15}}>
 
-<View
+      <View
             style={{ flex: 7.5, flexDirection: "column", marginBottom: 10 }}
           >
             <ScrollView>
@@ -288,27 +288,15 @@ const MedicineReminder_6 = props => {
                   INTERVAL == '3 times a day'
                 )
                 &&
-                <View>
-                  <View style={{
-                    ...styles.textareaWithBackground, marginTop: 10, flex: .1,
-                    // backgroundColor: 'pink'
-                  }}>
-                    <Text style={{left: 20, fontWeight: 'bold', fontSize: 15.5, top: 4}}>When do you take your first dose?</Text>
-                  </View>
-
-                  
-
-                  <View style={{
-                    ...styles.bg_color_dots, flex: 1,
-                    width: '100%',
-                    marginLeft: '-2%'
-                    
-                  }}>
+                <View style={{height: 250, width: "100%", backgroundColor: "transparent"}}>
+                   <Text style={{left: 20, fontWeight: 'bold', fontSize: 15.5, top: 15}}>When do you take your first dose?</Text>
                       
 
-                    <Picker
+                   
+
+                   <Picker
                       style={{
-                        flex: 1, backgroundColor: 'white',
+                         backgroundColor: 'white', width: 130, height: 160, left: 0, top: 30
                       }}
                       textSize={20}
                       itemSpace={30}
@@ -318,9 +306,10 @@ const MedicineReminder_6 = props => {
                       // onboardingQuestionsList[questionIdCount].min or max
                       onValueChange={onDoseValueChangeHr}
                     />
-                    <Picker
+                     
+                     <Picker
                       style={{
-                        flex: 1, backgroundColor: 'white',
+                       backgroundColor: 'white', top: -130, width: 130, left: 130, height: 160
                       }}
                       //textColor={colors.picker_value}
                       textSize={20}
@@ -336,7 +325,7 @@ const MedicineReminder_6 = props => {
 
                     <Picker
                       style={{
-                        flex: 1, backgroundColor: 'white',
+                       backgroundColor: 'white',  top: -290, width: 130, left: 260, height: 160
                       }}
                       //textColor={colors.picker_value}
                       textSize={20}
@@ -349,26 +338,24 @@ const MedicineReminder_6 = props => {
                       // onboardingQuestionsList[questionIdCount].min or max
                       onValueChange={onDoseValueChangeAmPm}
                     />
-                    {/*
-            <FlatList
-              data={friendsList}
-              horizontal={false}
-              keyExtractor={item => item._id}
-              numColumns={1}
-              renderItem={itemData => (
-                <>
 
-                  <MedicineForm
-                    item={itemData.item}
-                    onBgSelect={onSelectBg}
-                  />
+                    <View style={{height: 3, width: 90, backgroundColor: "rgb(218, 217, 217)", position: 'absolute', top: 107, left: 20,
+                    borderRadius: 10}}></View>
+                     <View style={{height: 3, width: 90, backgroundColor: "rgb(218, 217, 217)", position: 'absolute', top: 107, left: 149,
+                    borderRadius: 10}}></View>
+                     <View style={{height: 3, width: 90, backgroundColor: "rgb(218, 217, 217)", position: 'absolute', top: 107, left: 278,
+                    borderRadius: 10}}></View>
 
-                </>
-              )}
-            />
-            */}
-                  </View>
+                     <View style={{height: 2.5, width: 90, backgroundColor: "rgb(218, 217, 217)", position: 'absolute', top: 150, left: 278,
+                    borderRadius: 10}}></View>
+                     <View style={{height: 2.5, width: 90, backgroundColor: "rgb(218, 217, 217)", position: 'absolute', top: 150, left: 149,
+                    borderRadius: 10}}></View>
+                     <View style={{height: 2.5, width: 90, backgroundColor: "rgb(218, 217, 217)", position: 'absolute', top: 150, left: 20,
+                    borderRadius: 10}}></View>
 
+                    <Text style={{color: "gray", fontSize: 24, top: - 390, left: 130, fontWeight: 'bold'}}>:</Text>
+                     
+                     
                 </View>
               }
 
@@ -378,25 +365,12 @@ const MedicineReminder_6 = props => {
                  INTERVAL == '3 times a day'
                 )
                 &&
-                <View>
-                  <View style={{
-                    ...styles.textareaWithBackground, marginTop: 10, flex: .1,
-                    // backgroundColor: 'pink'
-                  }}>
-                    <Text style={{left: 20, fontWeight: 'bold', fontSize: 15.5, top: 4}}>When do you take your second dose?</Text>
-                  </View>
-
-                  <View style={{
-                    ...styles.bg_color_dots, flex: 1,
-                    width: '80%',
-                    marginLeft: '10%'
-
-                  }}>
-
-
-                    <Picker
+                <View style={{height: 250, width: "100%", backgroundColor: "transparent"}}>
+                  <Text style={{left: 20, fontWeight: 'bold', fontSize: 15.5, top: 15}}>When do you take your second dose?</Text>
+                 
+                  <Picker
                       style={{
-                        flex: 1, backgroundColor: 'white',
+                       backgroundColor: 'white', width: 130, height: 160, left: 0, top: 30
                       }}
                       textSize={20}
                       itemSpace={30}
@@ -408,7 +382,7 @@ const MedicineReminder_6 = props => {
                     />
                     <Picker
                       style={{
-                        flex: 1, backgroundColor: 'white',
+                        backgroundColor: 'white',  top: -130, width: 130, left: 130, height: 160
                       }}
                       //textColor={colors.picker_value}
                       textSize={20}
@@ -421,10 +395,9 @@ const MedicineReminder_6 = props => {
                       // onboardingQuestionsList[questionIdCount].min or max
                       onValueChange={onDoseValueChangeMin2}
                     />
-
-                    <Picker
+                     <Picker
                       style={{
-                        flex: 1, backgroundColor: 'white',
+                       backgroundColor: 'white',  top: -290, width: 130, left: 260, height: 160
                       }}
                       //textColor={colors.picker_value}
                       textSize={20}
@@ -437,26 +410,22 @@ const MedicineReminder_6 = props => {
                       // onboardingQuestionsList[questionIdCount].min or max
                       onValueChange={onDoseValueChangeAmPm2}
                     />
-                    {/*
-            <FlatList
-              data={friendsList}
-              horizontal={false}
-              keyExtractor={item => item._id}
-              numColumns={1}
-              renderItem={itemData => (
-                <>
 
-                  <MedicineForm
-                    item={itemData.item}
-                    onBgSelect={onSelectBg}
-                  />
+                     <View style={{height: 2.5, width: 90, backgroundColor: "rgb(218, 217, 217)", position: 'absolute', top: 107, left: 20,
+                    borderRadius: 10}}></View>
+                     <View style={{height: 2.5, width: 90, backgroundColor: "rgb(218, 217, 217)", position: 'absolute', top: 107, left: 149,
+                    borderRadius: 10}}></View>
+                     <View style={{height: 2.5, width: 90, backgroundColor: "rgb(218, 217, 217)", position: 'absolute', top: 107, left: 278,
+                    borderRadius: 10}}></View>
 
-                </>
-              )}
-            />
-            */}
-                  </View>
-
+                     <View style={{height: 3, width: 90, backgroundColor: "rgb(218, 217, 217)", position: 'absolute', top: 150, left: 278,
+                    borderRadius: 10}}></View>
+                     <View style={{height: 3, width: 90, backgroundColor: "rgb(218, 217, 217)", position: 'absolute', top: 150, left: 149,
+                    borderRadius: 10}}></View>
+                     <View style={{height: 3, width: 90, backgroundColor: "rgb(218, 217, 217)", position: 'absolute', top: 150, left: 20,
+                    borderRadius: 10}}></View>
+                  
+                    <Text style={{color: "gray", fontSize: 24, top: - 390, left: 130, fontWeight: 'bold'}}>:</Text>
                 </View>
               }
 
@@ -464,24 +433,12 @@ const MedicineReminder_6 = props => {
               {
                 INTERVAL == '3 times a day'
                 &&
-                <View>
-                  <View style={{
-                    ...styles.textareaWithBackground, marginTop: 10, flex: .1,
-                    // backgroundColor: 'pink'
-                  }}>
-                    <Text style={{left: 20, fontWeight: 'bold', fontSize: 15.5, top: 4}}>When do you take your third dose?</Text>
-                  </View>
-
-                  <View style={{
-                    ...styles.bg_color_dots, flex: 1,
-                    width: '80%',
-                    marginLeft: '10%'
-                  }}>
-
-
-                    <Picker
+                <View style={{height: 250, width: "100%", backgroundColor: "transparent"}}>
+                   <Text style={{left: 20, fontWeight: 'bold', fontSize: 15.5, top: 15}}>When do you take your third dose?</Text>
+                 
+                   <Picker
                       style={{
-                        flex: 1, backgroundColor: 'white',
+                       backgroundColor: 'white', width: 130, height: 160, left: 0, top: 30
                       }}
                       textSize={20}
                       itemSpace={30}
@@ -493,7 +450,7 @@ const MedicineReminder_6 = props => {
                     />
                     <Picker
                       style={{
-                        flex: 1, backgroundColor: 'white',
+                       backgroundColor: 'white', top: -130, width: 130, left: 130, height: 160
                       }}
                       //textColor={colors.picker_value}
                       textSize={20}
@@ -509,7 +466,7 @@ const MedicineReminder_6 = props => {
 
                     <Picker
                       style={{
-                        flex: 1, backgroundColor: 'white',
+                        backgroundColor: 'white', top: -290, width: 130, left: 260, height: 160
                       }}
                       //textColor={colors.picker_value}
                       textSize={20}
@@ -522,25 +479,22 @@ const MedicineReminder_6 = props => {
                       // onboardingQuestionsList[questionIdCount].min or max
                       onValueChange={onDoseValueChangeAmPm3}
                     />
-                    {/*
-            <FlatList
-              data={friendsList}
-              horizontal={false}
-              keyExtractor={item => item._id}
-              numColumns={1}
-              renderItem={itemData => (
-                <>
 
-                  <MedicineForm
-                    item={itemData.item}
-                    onBgSelect={onSelectBg}
-                  />
+                    <View style={{height: 2.5, width: 90, backgroundColor: "rgb(218, 217, 217)", position: 'absolute', top: 107, left: 20,
+                    borderRadius: 10}}></View>
+                     <View style={{height: 2.5, width: 90, backgroundColor: "rgb(218, 217, 217)", position: 'absolute', top: 107, left: 149,
+                    borderRadius: 10}}></View>
+                     <View style={{height: 2.5, width: 90, backgroundColor: "rgb(218, 217, 217)", position: 'absolute', top: 107, left: 278,
+                    borderRadius: 10}}></View>
 
-                </>
-              )}
-            />
-            */}
-                  </View>
+                     <View style={{height: 3, width: 90, backgroundColor: "rgb(218, 217, 217)", position: 'absolute', top: 150, left: 278,
+                    borderRadius: 10}}></View>
+                     <View style={{height: 3, width: 90, backgroundColor: "rgb(218, 217, 217)", position: 'absolute', top: 150, left: 149,
+                    borderRadius: 10}}></View>
+                     <View style={{height: 3, width: 90, backgroundColor: "rgb(218, 217, 217)", position: 'absolute', top: 150, left: 20,
+                    borderRadius: 10}}></View>
+                  
+                    <Text style={{color: "gray", fontSize: 24, top: - 390, left: 130, fontWeight: 'bold'}}>:</Text>
 
                 </View>
               }
