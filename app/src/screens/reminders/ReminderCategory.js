@@ -28,8 +28,10 @@ const ReminderCategory = props => {
 
   const reminderCategory = useSelector(
     state => state.reminder.reminderCategory,
+    console.log(typeof(reminderCategory))
   );
 
+  
  
 
   const test = [{},{},{}]
@@ -165,16 +167,15 @@ const ReminderCategory = props => {
         
         {/*Display reminder category blocks*/}
         <View style={{marginTop: 30}}>  
-        {reminderCategory.map((item, index) => (
-        <View key={index} style={{flexDirection: 'row', flexWrap: 'wrap'}}>
-        <ReminderCategoryCard
-          key={item._id}
-          item={item}
-          onBgSelect={onSelectBg}
-        />
+        <FlatList
+      data={reminderCategory}
+      keyExtractor={(item) => item._id} 
+      renderItem={({ item }) => (
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+          <ReminderCategoryCard key={item._id} item={item} onBgSelect={onSelectBg} />
         </View>
-       
-      ))}
+      )}
+    />
        </View>
           
        

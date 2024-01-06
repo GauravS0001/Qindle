@@ -10,77 +10,53 @@ import { useEffect } from "react";
 import * as types from '../startup/types';
 import Close from '../../../res/images/Close.svg';
 import colors from '../../../res/colors';
+var aesEcryptionDecryption = require('../../api/aes_encrypt_decrypt');
+import axios from "axios";
 
 function ReminderUpdate(props) {
 
   const _user = useSelector(state => state.user); 
   const category = useSelector(state => state.RemUpdtReducer.category)
   const id = useSelector(state => state.RemUpdtReducer.reminderId)
-
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch({
-      type: types.GET_MEDICINE_FORM,
-      userId: _user.userDetails._id
-    })
 
-    dispatch({
-      type: types.GET_SINGLE_REMINDER_DETAILS_FUNCTION,
-      payload: id
-    })
-  }, []);
+  const [ReminderDetails, setReminderDetails] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const medicineForms = useSelector(
-    state => state.reminder.medicineForm,
-  );
-  const ReminderDetails = useSelector(
+
+
+  const ReminderDetailsMed = useSelector(
     state => state.reminder.singleReminderDetails,
+    console.log('ReminderDetails:', typeof(ReminderDetails))
   )
 
-  //***********************************/
-  const onSelectBg = item => {
-    dispatch(setMedicineCategory(item))
-  }
-  //*********************************/
-
-  const [Day, setDay] = useState(new Date());
-  const [showDate, setShowDate] = useState(false);
-  const [showTime, setShowTime] = useState(false);
-  const [postText, setPostText] = useState('');
-  const [Time, setTime] = useState(new Date());
-  const [TimeStr, setTimeStr] = useState(Time.toLocaleTimeString('it-IT'));
 
 
-  const textChangeHandler = text => {
-    setPostText(text);
-  };
+  useEffect(() => {
+       dispatch({
+        type: types.GET_SINGLE_REMINDER_DETAILS_FUNCTION,
+        payload: id,
+       });
+      const fetchData = async () => {
+        try {
+          const response = await axios.get(`http://aarambhlife.in/api/getreminderdetails/${id}`);
+          
+          // Assuming response.data is the encrypted data
+          let encryptData = aesEcryptionDecryption.decryptData(response.data);
+          let result = JSON.parse(encryptData);
+  
+          setReminderDetails(result);
+        } catch (error) {
+          console.error('Error fetching reminder details:', error);
+        } finally {
+          setLoading(false);
+        }
+      };
 
-  const textChangeHandler2 = text => {
-    setShowDate(true);
-  };
+      fetchData()
 
-  const textChangeHandler3 = text => {
-    setShowDate(false);
-    setShowTime(true);
-    //setPostText3(text);
-  };
 
-  const onChangeDate = (event, selectedDate) => {
-
-    if (selectedDate != undefined) {
-      setDay(selectedDate);
-    }
-    setShowDate(false);
-  };
-
-  const onChangeTime = (event, selectedDate) => {
-   
-    if (selectedDate != undefined) {
-      setTime(selectedDate);
-      setTimeStr(selectedDate.toLocaleTimeString('it-IT'));
-    }
-    setShowTime(false);
-  };
+  }, [id]);
 
   //##################################################################################################################################
   if (category === 'Bill Payments') {
@@ -106,7 +82,7 @@ function ReminderUpdate(props) {
             fontSize: 18
           }}>Bill Name*</Text>
 
-          <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 58}}>{ReminderDetails[0].name}</Text>
+          <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 58}}>{ReminderDetails && ReminderDetails[0] ? ReminderDetails[0].name : 'string' }</Text>
 
           <View style={{height: 2.5, width: "91.5%", left: 15, backgroundColor: "rgb(241, 241, 241)", position: "absolute", top: 93}}></View>
 
@@ -117,12 +93,9 @@ function ReminderUpdate(props) {
             fontSize: 18
           }}>Bill Pyment Date*</Text>
 
-           <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 130}}>{ReminderDetails[0].date.slice(0, 10)}</Text>
+           <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 130}}>{ReminderDetails && ReminderDetails[0] ? ReminderDetails[0].date.slice(0,10) : 'string' }</Text>
   
         </View>
-
-      
-        
 
         <View style={{
           bottom: 0,
@@ -171,7 +144,7 @@ function ReminderUpdate(props) {
             <Text style={{
               color: "black", position: 'absolute', fontSize: 18, fontWeight: 'bold',
               top: 11, left: 45, width: 500
-            }}>{category} Reminder</Text>
+            }}>Birthday Reminder</Text>
           </TouchableOpacity>
         </View>
 
@@ -184,7 +157,7 @@ function ReminderUpdate(props) {
             fontSize: 18
           }}>Name*</Text>
 
-          <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 58}}>{ReminderDetails[0].name}</Text>
+          <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 58}}>{ReminderDetails && ReminderDetails[0] ? ReminderDetails[0].name : 'string' }</Text>
 
           <View style={{height: 2.5, width: "91.5%", left: 15, backgroundColor: "rgb(241, 241, 241)", position: "absolute", top: 93}}></View>
 
@@ -195,7 +168,7 @@ function ReminderUpdate(props) {
             fontSize: 18
           }}>Birthday Date*</Text>
 
-           <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 130}}>{ReminderDetails[0].date.slice(0, 10)}</Text>
+           <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 130}}>{ReminderDetails && ReminderDetails[0] ? ReminderDetails[0].date.slice(0,10) : 'string' }</Text>
            
          
         </View>
@@ -260,7 +233,7 @@ function ReminderUpdate(props) {
             fontSize: 18
           }}>Name*</Text>
 
-          <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 58}}>{ReminderDetails[0].name}</Text>
+          <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 58}}>{ReminderDetails && ReminderDetails[0] ? ReminderDetails[0].name : 'string' }</Text>
 
           <View style={{height: 2.5, width: "91.5%", left: 15, backgroundColor: "rgb(241, 241, 241)", position: "absolute", top: 93}}></View>
 
@@ -271,9 +244,9 @@ function ReminderUpdate(props) {
             fontSize: 18
           }}>Aniversary Date*</Text>
 
-           <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 130}}>{ReminderDetails[0].date.slice(0, 10)}</Text>
+           <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 130}}>{ReminderDetails && ReminderDetails[0] ? ReminderDetails[0].date.slice(0,10) : 'string' }</Text>
            
-
+           <Text style={{top: 300, color: "white"}}>{JSON.stringify(ReminderDetails)}</Text>
         </View>
 
         
@@ -323,17 +296,22 @@ function ReminderUpdate(props) {
       </View>
 
       <View style={{ height: "83.4%", width: "100%", backgroundColor: "white" }}>
-      <Text style={{
+     
+         
+             
+              <View>
+                 <Text style={{
             position: 'absolute',
             top: 31,
             left: 22,
             fontSize: 18
           }}>Name*</Text>
 
-          <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 58}}>{ReminderDetails[0].name}</Text>
+          <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 58}}>{ReminderDetails && ReminderDetails[0] ? ReminderDetails[0].name : 'string' }</Text>
 
           <View style={{height: 2.5, width: "91.5%", left: 15, backgroundColor: "rgb(241, 241, 241)", position: "absolute", top: 93}}></View>
-
+          
+          
           <Text style={{
             position: 'absolute',
             top: 105,
@@ -341,27 +319,26 @@ function ReminderUpdate(props) {
             fontSize: 18
           }}>Checkup Date*</Text>
 
-           <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 130}}>{ReminderDetails[0].date.slice(0, 10)}</Text>
+           <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 130}}>{ReminderDetails && ReminderDetails[0] ? ReminderDetails[0].date.slice(0,10) : 'string' }</Text>
            
 
            <View style={{height: 2, width: "91.5%", left: 15, backgroundColor: "rgb(241, 241, 241)", position: "absolute", top: 170}}></View>
-
-          
-           <Text style={{
+        
+           
+            <Text style={{
             position: 'absolute',
             top: 185,
             left: 22,
             fontSize: 18
           }}>Time*</Text>
 
-           <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 210}}>{ReminderDetails[0].time.slice(0,5)}</Text>
-         
-         
-             
+           <Text style={{fontSize: 20, fontWeight: "bold", position: "absolute", left: 22, top: 210}}>{ReminderDetails && ReminderDetails[0] ? ReminderDetails[0].time.slice(0,5) : 'string' }</Text>
+
+              </View>
+            
 
          
-
-
+              
           </View>
 
 
@@ -416,7 +393,7 @@ if(category === 'Medicine'){
 
     <View style={{ height: "83.4%", width: "100%", backgroundColor: "white" }}>
      
-     {ReminderDetails.map((item, index)=>(
+     {ReminderDetailsMed.map((item, index)=>(
       <View key={index} style={{height: 500, width: "100%", backgroundColor: "white"}}>
         <Text style={{fontSize: 18, top: 10, left: 15}}>Medicine Name:</Text>
         <Text style={{top: 10, left: 15, fontWeight: 'bold', fontSize: 20}}>{item.medicine_name}</Text>

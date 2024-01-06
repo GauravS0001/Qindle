@@ -75,21 +75,7 @@ const MenuBottom = props => {
             <Text style={styles.text}>Group</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.box}>
-          <TouchableOpacity
-            style={styles.box}
-
-            onPress={() => {
-              navigation.navigate('HealthLanding', {
-                screen: 'HealthLanding',
-                params: {
-                }
-              })
-            }}>
-            <Health_Normal />
-            <Text style={styles.text}>Health</Text>
-          </TouchableOpacity>
-        </View>
+       
 
 {/*       
         

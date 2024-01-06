@@ -53,6 +53,7 @@ import ServiceList from '../services/ServiceList';
 import ServiceListChild from '../services/ServiceListChild';
 
 import ProfileScreen from '../profile/ProfileScreen';
+import Birthday_Details from '../ReminderUpdateDelete/Birthday_Details';
 
 // import DetailScreen from '../../navigation/DetailScreen';
 // import CategoriesScreen from '../../navigation/CategoriesScreen';
@@ -901,6 +902,13 @@ export const HomeNavigator = () => {
         options={{ cardStyleInterpolator: forFade }}
       />
 
+      <HomeStackNavigator.Screen
+        name="Birthday_Details"
+        component={Birthday_DetailsNavigator}
+        options={{ cardStyleInterpolator: forFade }}
+      />
+
+
 
 
       <HomeStackNavigator.Screen
@@ -1598,6 +1606,24 @@ export const HealthCheckReminder_1Navigator = () => {
     </TextPostStackNavigator.Navigator>
   );
 };
+
+
+export const Birthday_DetailsNavigator = () => {
+  return (
+    <TextPostStackNavigator.Navigator
+      screenOptions={{
+        headerTitle: '',
+        headerShown: false,
+        // headerTransparent: true,
+      }}>
+      <TextPostStackNavigator.Screen
+        name="Birthday_Details"
+        component={Birthday_Details}
+      />
+    </TextPostStackNavigator.Navigator>
+  );
+};
+
 
 export const MycommunityDetailsNavigator = () => {
   return (

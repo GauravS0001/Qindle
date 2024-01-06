@@ -165,7 +165,7 @@ function* reminderCategory(data) {
   try {
 
     const res = yield call(queryApi, {
-      endpoint: 'http://192.168.1.4/api/getreminderoptions',
+      endpoint: 'http://aarambhlife.in/api/getreminderoptions',
       method: 'GET',
     });
     let encryptData = aesEcryptionDecryption.decryptData(res);
@@ -190,13 +190,13 @@ function* fetchRemindersForUserId(action) {
   try {
      
     const res = yield call(queryApi, {
-      endpoint: `http://192.168.1.4/api/getRemindersByUserId/${userId}`,
-      method: 'POST',    
+      endpoint: `http://aarambhlife.in/api/getRemindersByUserId/${userId}`,
+      method: 'POST-NOJSON',    
     });
 
     let encryptData = aesEcryptionDecryption.decryptData(res);  
     let result = JSON.parse(encryptData);
-
+    
     yield put(setReminderUsers(result));
 
   } catch (err) {
@@ -213,7 +213,7 @@ function* deleteReminder(action) {
   try {
      
     const res = yield call(queryApi, {
-      endpoint: `http://192.168.1.4/api/deletereminders/${reminderId}`,
+      endpoint: `http://aarambhlife.in/api/deletereminders/${reminderId}`,
       method: 'DELETE',    
     });
 
@@ -235,8 +235,8 @@ function* fetchReminderById(action) {
 
   try {
     const res = yield call(queryApi, {
-      endpoint: `http://192.168.1.4/api/getreminderdetails/${reminderId}`,
-      method: 'GET', // Assuming you want to use GET method for fetching a specific reminder
+      endpoint: `http://aarambhlife.in/api/getreminderdetails/${reminderId}`,
+      method: 'GET', 
     });
 
     let encryptData = aesEcryptionDecryption.decryptData(res);

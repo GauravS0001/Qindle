@@ -68,21 +68,7 @@ const MenuBottomShop = props => {
             <Text style={styles.text}>Group</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.box}>
-          <TouchableOpacity
-            style={styles.box}
-
-            onPress={() => {
-              navigation.navigate('HealthLanding', {//HealthScreen
-                screen: 'HealthLanding',
-                params: {
-                }
-              })
-            }}>
-            <Health_Normal />
-            <Text style={styles.text}>Health</Text>
-          </TouchableOpacity>
-        </View>
+        
         {/*   
         <View style={styles.box}>
           <TouchableOpacity onPress={() => props.addPosts()}>

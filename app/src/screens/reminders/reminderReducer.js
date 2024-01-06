@@ -15,7 +15,7 @@ const initialState = {
   reinderNotificationShowCount: 0,//FOR notification,
   userReminder: [],
   reminderDelete: '',
-  singleReminderDetails: []
+  singleReminderDetails: [0]
 };
 
 const reminderReducer = createReducer(initialState, {

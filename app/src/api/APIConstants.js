@@ -4,17 +4,17 @@ export const SECRETE_KEY = '273D70BB68A2DF22B2C5498CB712995C';
 export const SECRETE_IV = 'E4806F56EE621821';
 //export const LOCAL_HOST = '68.178.161.118';  //
 //export const LOCAL_HOST = 'darjeelingtour.in';  //
-export const LOCAL_HOST = '3f78fab7d259cc9417fca7e40f049bfb.serveo.net'; 
+export const LOCAL_HOST = 'aarambhlife.in'; 
 //export const LOCAL_TEST_HOST = '192.168.1.4'
 
-export const LOCAL_TEST_HOST = '3f78fab7d259cc9417fca7e40f049bfb.serveo.net'; 
+export const LOCAL_TEST_HOST = 'aarambhlife.in'; 
 
 
 //export const LOCAL_HOST = '192.168.56.1';  //
 //export const LOCAL_HOST = '52a8-103-141-117-9.ngrok.io';  //
 
-export const PROTOCOL = 'http://'; 
-export const LOCAL_TEST_PROTOCOL = 'http://';
+export const PROTOCOL = 'https://'; 
+export const LOCAL_TEST_PROTOCOL = 'https://';
 //export const PROTOCOL = 'http://';  //
 
 export const IMAGE_HOST = LOCAL_HOST;//'192.168.2.21:7000';  //

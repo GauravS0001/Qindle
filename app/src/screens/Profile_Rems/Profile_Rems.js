@@ -11,12 +11,6 @@ import * as types from '../startup/types';
 
 const Profile_Rems = props =>{
 
-  /*const rems = [{category: "Birthday", date: "Tue Dec 26 2023", name: "Gaurav"}, {category: "Bill payment", date: "Sat Dec 30 2026", name: "Electic Bill"},
-                {category: "Anniversary", date: "Sat Dec 30 2026", name: "Tanu"}, {category: "Medicine", date: "Sat Dec 30 2026", name: "Meftal +"},
-                {category: "Medicine", date: "Sat Dec 30 2026", name: "Etilam"}, {category: "Bill payment", date: "Sat Dec 30 2026", name: "Water Bill"},
-                {category: "Health check", date: "Sat Dec 30 2026", name: "Measure B.P"}]*/
-
-
   const dispatch = useDispatch();
   const _user = useSelector(state => state.user);
 
@@ -36,6 +30,12 @@ const Profile_Rems = props =>{
     props.navigation.navigate("ReminderUpdate")
     dispatch(setCategoryAndReminderUpdate(category, reminderId));
   }
+
+  function updtBDay (category, reminderId){
+    props.navigation.navigate("Birthday_Details")
+    dispatch(setCategoryAndReminderUpdate(category, reminderId));
+  }
+  
   
 
     return(
