@@ -85,10 +85,10 @@ const ChannelScreen = props => {
 
  const vdata = [
   {
-    "_id": 1, title: "bhakti",
+    Category: "Bhakti",
     data: [
       {
-        "_id": 11, title: 'Aarti & Chalisa',
+         Subcat: 'Aarti & Chalisa',
         assets: [
           {
 
@@ -150,7 +150,7 @@ const ChannelScreen = props => {
         ]
       },
       {
-        "_id": 12, title: 'Bhajan',
+        Subcat: 'Bhajan',
         assets: [
           {
 
@@ -163,45 +163,13 @@ const ChannelScreen = props => {
           }
         ]
       },
-      {
-        "_id": 13, title: 'Live telecast',
-        assets: [
-          {
-            '_id': 'sdsa',
-            'title': 'live',
-            'type': 'youtube',
-            'url': ''
-          }
-        ]
-      },
-      {
-        "_id": 15, title: 'Bhakti podcast',
-        assets: [
-          {
-            '_id': 'sdsa',
-            'title': 'bhakti',
-            'type': 'youtube',
-            'url': ''
-          }
-        ]
-      },
-      {
-        "_id": 16, title: 'Gurbani',
-        assets: [
-          {
-            '_id': 'sdsa',
-            'title': 'gurbani',
-            'type': 'youtube',
-            'url': ''
-          }
-        ]
-      }]
+      ]
   },
   {
-    "_id": 2, title: "Old Song",
+     Category: "Old Songs",
     data: [
       {
-        "_id": 111, title: 'Popular 70-80s',
+         Subcat: 'Popular 70-80s',
         assets: [
           {
 
@@ -224,7 +192,7 @@ const ChannelScreen = props => {
         ]
       },
       {
-        "_id": 112, title: 'Kishore Kumar hits',
+        Subcat: 'Kishore Kumar hits',
         assets: [
           {
 
@@ -236,83 +204,31 @@ const ChannelScreen = props => {
             'videoId': 'BT4MQ2gA65Q'
           }
         ]
-      },
-      {
-        "_id": 113, title: 'Romance Favorites',
-        assets: [
-          {
-            '_id': 'sdsa',
-            'title': 'rom fav',
-            'type': 'youtube',
-            'url': ''
-          }
-        ]
-      },
-      {
-        "_id": 114, title: 'Late Mangeshkar Hits',
-        assets: [
-          {
-
-            '_id': 'sdsa',
-            'title': 'लता मंगेशकर एंड मुहम्मद रफ़ी के सर्वोत्तम गाने | Old Hindi Songs of Lata Mangeshkar & Muhammed Rafi',
-            'type': 'youtube',
-            'icon': IMAGE_PROTOCOL + IMAGE_HOST + IMAGE_BASE + 'youtube/10.jpg',
-            //'icon': 'http://img.youtube.com/vi/hvuk7bU5gyU/0.jpg',
-            'videoId': 'hvuk7bU5gyU'
-          }
-        ]
-      },
-      {
-        "_id": 115, title: 'Heartbreak',
-        assets: [
-          {
-            '_id': 'sdsa',
-            'title': 'hert b',
-            'type': 'youtube',
-            'url': ''
-          }
-        ]
-      },
-      {
-        "_id": 116, title: 'Mohd Rafi Hits',
-        assets: [
-          {
-            '_id': 'sdsa',
-            'title': 'm rafi',
-            'type': 'youtube',
-            'url': ''
-          }
-        ]
-      },
+      }
     ]
   },
-  {
-    "_id": 3, title: "Romantic", data: []
-  },
-  { "_id": 4, title: "Radio", data: [] },
-
 ]
 
   return (
    <View style={{height: "100%", width: "100%", backgroundColor: "white"}}>
-     <View style={{height: 107, width: "100%", backgroundColor: "#055AbB"}}>
+     <View style={{height: 100, width: "100%", backgroundColor: "#055AbB"}}>
 
-      <TouchableOpacity style={{height: 40, width: 40, backgroundColor: "transparent", position: 'absolute', top: 6.5, justifyContent: "center", alignItems: "center", left: 3}}>
+      <TouchableOpacity style={{height: 40, width: 40, backgroundColor: "transparent", position: 'absolute', top: 6.5, justifyContent: "center", alignItems: "center", left: 3, top: 13}}>
         <Image source={require("../../../res/images/Back2.png")} style={{height: 40, width: 40}}/>
       </TouchableOpacity>
-      <Text style={{fontSize: 23, fontWeight: "bold", color: "white", top: 10, left: 45}}>Channels</Text>
+      <Text style={{fontSize: 22, fontWeight: "bold", color: "white", top: 16, left: 45}}>Channels</Text>
       
        <View style={{height: 50, width: "100%", backgroundColor: "transparent", top: 25}}>
         <ScrollView style={{height: 50, width: "100%", backgroundColor: "transparent"}} horizontal={true} showsHorizontalScrollIndicator={false}>
           {TopOptions.map((item, index)=>(
 
-            <TouchableOpacity key={index} style={{height: 40, paddingLeft: 8, marginLeft: 10, backgroundColor: "transparent", paddingRight: 8,
+            <TouchableOpacity key={index} style={{height: 35, paddingLeft: 8, marginLeft: 10, backgroundColor: "transparent", paddingRight: 8,
             borderBottomWidth: selectedTabIndex === index ? 2 : 0,
             borderBottomColor: selectedTabIndex === index ? 'white' : 'transparent',
             }}
             onPress={() => handleTabPress(index)}
             >
-             <Text style={{top: 8, fontWeight: "bold", fontSize: 17, color: "white"}}>{item.name}</Text>
+             <Text style={{top: 8, fontWeight: "bold", fontSize: 16, color: "white"}}>{item.name}</Text>
             </TouchableOpacity>
          
          ))}
@@ -321,20 +237,25 @@ const ChannelScreen = props => {
        </View>
      </View>
 
-     <ScrollView style={{height: 300, width: "100%"}}>
+     <ScrollView style={{height: 300, width: "100%", top: 0, paddingLeft: 15}}>
      {vdata.map((item,index)=>(
        <View key={index}>
-         <Text >{item.title}</Text>
+         <Text style={{fontWeight: "bold", fontSize: 20, marginTop: 25}}>{item.Category}</Text>
         
         {item.data.map((subcat, index)=>(
           <View key={index}>
-            <Text style={{left: 20}}>{subcat.title}</Text>
+            <Text style={{left: 2, fontWeight: "bold", fontSize: 18.5, marginTop: 10}}>{subcat.Subcat}</Text>
 
-               {subcat.assets.map((itm, index)=>(
-                <View>
-                  <Text style={{left: 80, marginTop: 5}}>{itm.title}</Text>
-                </View>
-               ))}
+               <ScrollView style={{height: 200, width: "96.5%", backgroundColor: "transparent", top: 3, left: -10}} horizontal={true} showsHorizontalScrollIndicator={false}>
+                  {subcat.assets.map((itm, index)=>(
+                  <View style={{height: 180, width: 300, backgroundColor: "white", marginLeft: 15, top: 10, elevation: 5, borderRadius: 10}}>
+                    <Text style={{left: 12, marginTop: "43%", width: "91%"}} numberOfLines={2}>{itm.title}</Text>
+                  </View>
+                  ))}
+
+                  <View style={{height: 180, width: 10}}></View>
+
+               </ScrollView>
 
           </View>
           
@@ -343,7 +264,8 @@ const ChannelScreen = props => {
       </View>
        
      ))}
-
+        
+        <View style={{height: 100, width: "100%"}}></View>
      </ScrollView>
    </View>
   );
