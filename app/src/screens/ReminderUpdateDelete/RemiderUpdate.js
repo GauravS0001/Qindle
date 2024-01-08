@@ -37,6 +37,7 @@ function ReminderUpdate(props) {
         type: types.GET_SINGLE_REMINDER_DETAILS_FUNCTION,
         payload: id,
        });
+
       const fetchData = async () => {
         try {
           const response = await axios.get(`http://aarambhlife.in/api/getreminderdetails/${id}`);
@@ -98,8 +99,8 @@ function ReminderUpdate(props) {
         </View>
 
         <View style={{
-          bottom: 0,
-          height: 75,
+          bottom: 55,
+          height: 120,
           width: "100%",
           backgroundColor: "white",
           borderTopColor: "rgb(229, 229, 229);",
@@ -174,8 +175,8 @@ function ReminderUpdate(props) {
         </View>
 
         <View style={{
-          bottom: 0,
-          height: 75,
+          bottom: 55,
+          height: 120,
           width: "100%",
           backgroundColor: "white",
           borderTopColor: "rgb(229, 229, 229);",
@@ -251,7 +252,7 @@ function ReminderUpdate(props) {
 
         
 
-        <View style={{ bottom: 0, height: 75, width: "100%", backgroundColor: "white", borderTopColor: "rgb(229, 229, 229);", borderTopWidth: 1.5 }}>
+        <View style={{ bottom: 55, height: 120, width: "100%", backgroundColor: "white", borderTopColor: "rgb(229, 229, 229);", borderTopWidth: 1.5 }}>
 
         <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "white", marginTop: 10, borderRadius: 10, borderWidth: 2, borderColor: "#055F9B", left: "53%"}}
     onPress={()=>{
@@ -342,7 +343,7 @@ function ReminderUpdate(props) {
           </View>
 
 
-         <View style={{ bottom: 0, height: 75, width: "100%", backgroundColor: "white", borderTopColor: "rgb(229, 229, 229);", borderTopWidth: 1.5}}>
+         <View style={{ bottom: 55, height: 120, width: "100%", backgroundColor: "white", borderTopColor: "rgb(229, 229, 229);", borderTopWidth: 1.5}}>
 
          <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "white", marginTop: 10, borderRadius: 10, borderWidth: 2, borderColor: "#055F9B", left: "53%"}}
     onPress={()=>{
@@ -456,7 +457,7 @@ if(category === 'Medicine'){
 
    
 
-    <View style={{ bottom: 0, height: 75, width: "100%", backgroundColor: "white", borderTopColor: "rgb(229, 229, 229);", borderTopWidth: 1.5 }}>
+    <View style={{ bottom: 55, height: 120, width: "100%", backgroundColor: "white", borderTopColor: "rgb(229, 229, 229);", borderTopWidth: 1.5 }}>
 
     <TouchableOpacity style={{height: 50, width: 160, backgroundColor: "white", marginTop: 10, borderRadius: 10, borderWidth: 2, borderColor: "#055F9B", left: "53%"}}
     onPress={()=>{

@@ -36,6 +36,8 @@ import messaging from '@react-native-firebase/messaging';
 import ChannelCategory from '../../components/UI/ChannelCategory';
 
 import Slider from '../../components/UI/SliderLanding';
+import Video from 'react-native-video';
+import LinearGradient from 'react-native-linear-gradient';
 
 const initialState = {
   postText: '',
@@ -85,7 +87,7 @@ const ChannelScreen = props => {
 
  const vdata = [
   {
-    Category: "Bhakti",
+    Category: "Religion & Spirituality",
     data: [
       {
          Subcat: 'Aarti & Chalisa',
@@ -207,7 +209,189 @@ const ChannelScreen = props => {
       }
     ]
   },
+
+  {
+    Category: "Life & Spirituality",
+   data: [
+     {
+        Subcat: 'Change your life',
+       assets: [
+         {
+
+           '_id': 'sdsa',
+           'title': "70's Evergreen Hits | Romantic 70s | 70s Hits Hindi Songs | Audio Jukebox",
+           'type': 'youtube',
+           //'icon': 'http://img.youtube.com/vi/rXPCJG42qqQ/0.jpg',
+           'icon': IMAGE_PROTOCOL + IMAGE_HOST + IMAGE_BASE + 'youtube/7.jpg',
+           'videoId': 'rXPCJG42qqQ'
+         },
+         {
+
+           '_id': 'sdsa',
+           'title': 'Best Old Hindi Songs of Lata Mangeshkar & Kishore Kumar | लता मंगेशकर और किशोर कुमार के पुराने गीत',
+           'type': 'youtube',
+           'icon': IMAGE_PROTOCOL + IMAGE_HOST + IMAGE_BASE + 'youtube/8.jpg',
+           //'icon': 'http://img.youtube.com/vi/iKxyBt9GBbM/0.jpg',
+           'videoId': 'iKxyBt9GBbM'
+         }
+       ]
+     },
+     {
+       Subcat: 'Life & Spirituality',
+       assets: [
+         {
+
+           '_id': 'sdsa',
+           'title': 'Kishore Kumar Hit Songs I Kishore Kumar in Happy Mood I Romantic songs of kishore kumar',
+           'type': 'youtube',
+           'icon': IMAGE_PROTOCOL + IMAGE_HOST + IMAGE_BASE + 'youtube/9.jpg',
+           //'icon': 'http://img.youtube.com/vi/BT4MQ2gA65Q/0.jpg',
+           'videoId': 'BT4MQ2gA65Q'
+         }
+       ]
+     }
+   ]
+ },
+
+ {
+  Category: "Health & Wellness",
+ data: [
+   {
+      Subcat: 'Meditation',
+     assets: [
+       {
+
+         '_id': 'sdsa',
+         'title': "70's Evergreen Hits | Romantic 70s | 70s Hits Hindi Songs | Audio Jukebox",
+         'type': 'youtube',
+         //'icon': 'http://img.youtube.com/vi/rXPCJG42qqQ/0.jpg',
+         'icon': IMAGE_PROTOCOL + IMAGE_HOST + IMAGE_BASE + 'youtube/7.jpg',
+         'videoId': 'rXPCJG42qqQ'
+       },
+       {
+
+         '_id': 'sdsa',
+         'title': 'Best Old Hindi Songs of Lata Mangeshkar & Kishore Kumar | लता मंगेशकर और किशोर कुमार के पुराने गीत',
+         'type': 'youtube',
+         'icon': IMAGE_PROTOCOL + IMAGE_HOST + IMAGE_BASE + 'youtube/8.jpg',
+         //'icon': 'http://img.youtube.com/vi/iKxyBt9GBbM/0.jpg',
+         'videoId': 'iKxyBt9GBbM'
+       }
+     ]
+   },
+   {
+     Subcat: 'Yoga and Exercise',
+     assets: [
+       {
+
+         '_id': 'sdsa',
+         'title': 'Kishore Kumar Hit Songs I Kishore Kumar in Happy Mood I Romantic songs of kishore kumar',
+         'type': 'youtube',
+         'icon': IMAGE_PROTOCOL + IMAGE_HOST + IMAGE_BASE + 'youtube/9.jpg',
+         //'icon': 'http://img.youtube.com/vi/BT4MQ2gA65Q/0.jpg',
+         'videoId': 'BT4MQ2gA65Q'
+       }
+     ]
+   }
+ ]
+},
+
+{
+  Category: "Music",
+ data: [
+   {
+      Subcat: 'Old Music',
+     assets: [
+       {
+
+         '_id': 'sdsa',
+         'title': "70's Evergreen Hits | Romantic 70s | 70s Hits Hindi Songs | Audio Jukebox",
+         'type': 'youtube',
+         //'icon': 'http://img.youtube.com/vi/rXPCJG42qqQ/0.jpg',
+         'icon': IMAGE_PROTOCOL + IMAGE_HOST + IMAGE_BASE + 'youtube/7.jpg',
+         'videoId': 'rXPCJG42qqQ'
+       },
+       {
+
+         '_id': 'sdsa',
+         'title': 'Best Old Hindi Songs of Lata Mangeshkar & Kishore Kumar | लता मंगेशकर और किशोर कुमार के पुराने गीत',
+         'type': 'youtube',
+         'icon': IMAGE_PROTOCOL + IMAGE_HOST + IMAGE_BASE + 'youtube/8.jpg',
+         //'icon': 'http://img.youtube.com/vi/iKxyBt9GBbM/0.jpg',
+         'videoId': 'iKxyBt9GBbM'
+       }
+     ]
+   },
+   {
+     Subcat: 'Sleep Music',
+     assets: [
+       {
+
+         '_id': 'sdsa',
+         'title': 'Kishore Kumar Hit Songs I Kishore Kumar in Happy Mood I Romantic songs of kishore kumar',
+         'type': 'youtube',
+         'icon': IMAGE_PROTOCOL + IMAGE_HOST + IMAGE_BASE + 'youtube/9.jpg',
+         //'icon': 'http://img.youtube.com/vi/BT4MQ2gA65Q/0.jpg',
+         'videoId': 'BT4MQ2gA65Q'
+       }
+     ]
+   }
+ ]
+},
+
+{
+  Category: "News",
+ data: [
+   {
+      Subcat: 'Latest News',
+     assets: [
+       {
+
+         '_id': 'sdsa',
+         'title': "70's Evergreen Hits | Romantic 70s | 70s Hits Hindi Songs | Audio Jukebox",
+         'type': 'youtube',
+         //'icon': 'http://img.youtube.com/vi/rXPCJG42qqQ/0.jpg',
+         'icon': IMAGE_PROTOCOL + IMAGE_HOST + IMAGE_BASE + 'youtube/7.jpg',
+         'videoId': 'rXPCJG42qqQ'
+       },
+       {
+
+         '_id': 'sdsa',
+         'title': 'Best Old Hindi Songs of Lata Mangeshkar & Kishore Kumar | लता मंगेशकर और किशोर कुमार के पुराने गीत',
+         'type': 'youtube',
+         'icon': IMAGE_PROTOCOL + IMAGE_HOST + IMAGE_BASE + 'youtube/8.jpg',
+         //'icon': 'http://img.youtube.com/vi/iKxyBt9GBbM/0.jpg',
+         'videoId': 'iKxyBt9GBbM'
+       }
+     ]
+   },
+   {
+     Subcat: 'Popular News',
+     assets: [
+       {
+
+         '_id': 'sdsa',
+         'title': 'Kishore Kumar Hit Songs I Kishore Kumar in Happy Mood I Romantic songs of kishore kumar',
+         'type': 'youtube',
+         'icon': IMAGE_PROTOCOL + IMAGE_HOST + IMAGE_BASE + 'youtube/9.jpg',
+         //'icon': 'http://img.youtube.com/vi/BT4MQ2gA65Q/0.jpg',
+         'videoId': 'BT4MQ2gA65Q'
+       }
+     ]
+   }
+ ]
+},
 ]
+
+let Latest_Clips = [{title: "Howard letterpress prints a very imPRESSive headline.", url: "https://test/Clip1"},
+                    {title: "Most of us start this way and very few speak about low pay start #recruiterlife #recruiter", url: "https://test/Clip1"},
+                    {title: "How Foreigners react to Recycling in Japan #shorts #japanese #japaneselanguage #japaneseculture", url: "https://test/Clip1"},
+                    {title: "Abandoned WW2 Tunnels in the Mountains", url: "https://test/Clip1"},
+                    {title: "tornado omurice curry rice bowl - korean restaurant", url: "https://test/Clip1"}
+                  ]
+
+
+let artists = [{name: "Anuradha Paudwal", url: require("../../../res/images/artist1.jpg")},{name: "Narendra Chanchal", url: require("../../../res/images/artist2.jpg")},{name: "Gulshan Kumar", url: require("../../../res/images/artist3.jpg")}]
 
   return (
    <View style={{height: "100%", width: "100%", backgroundColor: "white"}}>
@@ -237,33 +421,157 @@ const ChannelScreen = props => {
        </View>
      </View>
 
+
+
+
+
+
+
      <ScrollView style={{height: 300, width: "100%", top: 0, paddingLeft: 15}}>
-     {vdata.map((item,index)=>(
+
+
+     {vdata.slice(0,1).map((item,index)=>(
        <View key={index}>
-         <Text style={{fontWeight: "bold", fontSize: 20, marginTop: 25}}>{item.Category}</Text>
+         <Text style={{fontWeight: "bold", fontSize: 20, marginTop: 25}}># {item.Category}</Text>
         
         {item.data.map((subcat, index)=>(
           <View key={index}>
-            <Text style={{left: 2, fontWeight: "bold", fontSize: 18.5, marginTop: 10}}>{subcat.Subcat}</Text>
+            <Text style={{left: 2, fontWeight: "bold", fontSize: 17, marginTop: 15}}>{subcat.Subcat}</Text>
 
-               <ScrollView style={{height: 200, width: "96.5%", backgroundColor: "transparent", top: 3, left: -10}} horizontal={true} showsHorizontalScrollIndicator={false}>
+               <ScrollView style={{height: 240, width: "96.5%", backgroundColor: "transparent", top: 3, left: -10}} horizontal={true} showsHorizontalScrollIndicator={false}>
                   {subcat.assets.map((itm, index)=>(
-                  <View style={{height: 180, width: 300, backgroundColor: "white", marginLeft: 15, top: 10, elevation: 5, borderRadius: 10}}>
-                    <Text style={{left: 12, marginTop: "43%", width: "91%"}} numberOfLines={2}>{itm.title}</Text>
+                  <View style={{height: 220, width: 300, backgroundColor: "white", marginLeft: 15, top: 10, elevation: 5, borderRadius: 10}}>
+                       
+                      <Image source={require("../../../res/images/VideoTestImg2.jpg")} style={{height: 165, width: 300, backgroundColor: "red", position: 'absolute', borderTopLeftRadius: 10, borderTopRightRadius: 10}} />
+
+                    <Text style={{left: 12, marginTop: 170, width: "91%"}} numberOfLines={2}>{itm.title}</Text>
                   </View>
                   ))}
-
                   <View style={{height: 180, width: 10}}></View>
-
                </ScrollView>
-
           </View>
-          
         ))}
-
-      </View>
-       
+      </View>  
      ))}
+
+
+
+
+
+
+
+
+
+
+     <Text style={{top: 35, fontSize: 20, fontWeight: "bold", left: 5}}>Latest Clips</Text>
+     <ScrollView style={{height: 280, width: "98%", left: -7, backgroundColor: "transparent", top: 40}} horizontal={true} showsHorizontalScrollIndicator={false}>
+      {Latest_Clips.map((item, index)=>(
+        <View key={index} style={{height: 260, width: 185, backgroundColor: "white", elevation: 5, borderRadius: 10, marginLeft: 13, top: 10}}>
+          
+          <Image source={require("../../../res/images/ClipTestImg3.jpg")} style={{position: 'absolute', height: 260, width: 185, borderRadius: 10}}/>
+          
+           <LinearGradient colors={['transparent', 'transparent', 'transparent','black']} style={{height: "100%", width: "100%", borderRadius: 10}}>
+            <Text style={{color: "white", width: 160, left: 10, top: 208, fontWeight: "bold"}} numberOfLines={2}>{item.title}</Text>
+           </LinearGradient>
+           
+          
+        </View>
+      ))}
+      <View style={{height: 250, width: 20}}></View>
+     </ScrollView>
+
+
+
+
+     
+
+
+
+    <Text style={{top: 75, fontSize: 20, fontWeight: "bold", left: 5}}>Your Favourite Artists</Text>
+    <ScrollView style={{height: 300, width: "94%", backgroundColor: "transparent", top: 80, left: 0}} horizontal={true} showsHorizontalScrollIndicator={false}>
+     {artists.map((item,index)=>(
+      <View style={{height: 280, width: 170, backgroundColor: "white", marginLeft: 5, top: 10}}>
+        <View style={{height: 165, width: 165, borderRadius: 100, borderColor: "rgb(191, 188, 188)", borderWidth: 3, left: 1, top: 5}}>
+          <Image source={item.url} style={{height: 158, width: 158, borderRadius: 165, left: 0.5}}/>
+        </View>
+
+        <View style={{height: 40, width: "100%", backgroundColor: "transparent", top: 5, justifyContent: 'center', alignItems: "center"}}>
+          <Text style={{fontSize: 17.5, fontWeight: "bold"}} numberOfLines={1}>{item.name}</Text>
+        </View>
+
+        <TouchableOpacity style={{height: 40, width: 90, backgroundColor: "black", top: 10, left: "22%", borderRadius: 5, justifyContent: 'center', alignItems: 'center'}}>
+          <Text style={{color: "white", fontWeight: "bold", fontSize: 15}}>Follow</Text>
+        </TouchableOpacity>
+      </View>
+     ))}
+
+     <View style={{width: 5, height: "100%"}}></View>
+    </ScrollView>
+
+
+
+
+
+
+
+      
+    <View style={{height: 60, width: "100%"}}></View>
+     {vdata.slice(1,2).map((item,index)=>(
+       <View key={index}>
+         <Text style={{fontWeight: "bold", fontSize: 20, marginTop: 25}}># {item.Category}</Text>
+        
+        {item.data.map((subcat, index)=>(
+          <View key={index}>
+            <Text style={{left: 2, fontWeight: "bold", fontSize: 17, marginTop: 15}}>{subcat.Subcat}</Text>
+
+               <ScrollView style={{height: 240, width: "96.5%", backgroundColor: "transparent", top: 3, left: -10}} horizontal={true} showsHorizontalScrollIndicator={false}>
+                  {subcat.assets.map((itm, index)=>(
+                  <View style={{height: 220, width: 300, backgroundColor: "white", marginLeft: 15, top: 10, elevation: 5, borderRadius: 10}}>
+                       
+                      <Image source={require("../../../res/images/VideoTestImg2.jpg")} style={{height: 165, width: 300, backgroundColor: "red", position: 'absolute', borderTopLeftRadius: 10, borderTopRightRadius: 10}} />
+
+                    <Text style={{left: 12, marginTop: 170, width: "91%"}} numberOfLines={2}>{itm.title}</Text>
+                  </View>
+                  ))}
+                  <View style={{height: 180, width: 10}}></View>
+               </ScrollView>
+          </View>
+        ))}
+      </View>  
+     ))}
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    <Text style={{top: 35, fontSize: 20, fontWeight: "bold", left: 5}}>Popular Clips</Text>
+     <ScrollView style={{height: 280, width: "98%", left: -7, backgroundColor: "transparent", top: 40}} horizontal={true} showsHorizontalScrollIndicator={false}>
+      {Latest_Clips.map((item, index)=>(
+        <View key={index} style={{height: 260, width: 185, backgroundColor: "white", elevation: 5, borderRadius: 10, marginLeft: 13, top: 10}}>
+          
+          <Image source={require("../../../res/images/ClipTestImg3.jpg")} style={{position: 'absolute', height: 260, width: 185, borderRadius: 10}}/>
+          
+           <LinearGradient colors={['transparent', 'transparent', 'transparent','black']} style={{height: "100%", width: "100%", borderRadius: 10}}>
+            <Text style={{color: "white", width: 160, left: 10, top: 208, fontWeight: "bold"}} numberOfLines={2}>{item.title}</Text>
+           </LinearGradient>
+           
+          
+        </View>
+      ))}
+      <View style={{height: 250, width: 20}}></View>
+     </ScrollView>
+
+
+
         
         <View style={{height: 100, width: "100%"}}></View>
      </ScrollView>
