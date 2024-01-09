@@ -76,10 +76,11 @@ const ChannelScreen = props => {
                       {name: "Health & Wellness"}, {name: "Music"}, {name: "News"}, {name: "Comedy"}];
 
 
-  const [selectedTabIndex, setSelectedTabIndex] = useState(0); 
+  
 
-  const handleTabPress = (index) => {
-    setSelectedTabIndex(index);
+  const handleTabPress = (index, page) => {
+    
+    {props.navigation.navigate(page)}
   };
 
   
@@ -407,10 +408,10 @@ let artists = [{name: "Anuradha Paudwal", url: require("../../../res/images/arti
           {TopOptions.map((item, index)=>(
 
             <TouchableOpacity key={index} style={{height: 35, paddingLeft: 8, marginLeft: 10, backgroundColor: "transparent", paddingRight: 8,
-            borderBottomWidth: selectedTabIndex === index ? 2 : 0,
-            borderBottomColor: selectedTabIndex === index ? 'white' : 'transparent',
+            borderBottomWidth: index === 0 ? 2 : 0,
+            borderBottomColor: index === 0 ? 'white' : 'transparent'
             }}
-            onPress={() => handleTabPress(index)}
+            onPress={() => handleTabPress(index, item.name)}
             >
              <Text style={{top: 8, fontWeight: "bold", fontSize: 16, color: "white"}}>{item.name}</Text>
             </TouchableOpacity>
